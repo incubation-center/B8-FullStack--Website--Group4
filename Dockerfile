@@ -22,8 +22,9 @@ RUN yarn add -D @swc/cli @swc/core
 
 COPY . .
 
-RUN yarn run build
 
+RUN yarn run build
+RUN chmod -R 777 /home/nextjs/app/.next/cache/images
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nextjs -u 1001
 
