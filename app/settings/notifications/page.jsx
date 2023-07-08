@@ -1,15 +1,16 @@
 "use client";
 import React, { useState } from "react";
 import Settings from "../../components/Setting";
+import Header from "@/app/components/Header";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const page = () => {
   const [isChecked, setIsChecked] = useState(false);
 
-  const toggleCheckbox = () => {
-    setIsChecked(!isChecked);
-  };
+  // const toggleCheckbox = () => {
+  //   setIsChecked(!isChecked);
+  // };
   return (
     <div>
       <div className="md:hidden block">

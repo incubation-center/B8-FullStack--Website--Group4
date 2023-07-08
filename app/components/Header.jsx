@@ -28,20 +28,20 @@ import ChatGPT from "app/components/ChatGPT";
 
 const Comparisons = [
   {
-    src: "/images/comparisons/compare-loans.png",
+    src: "/compare-loans.png",
     title: "Compare Loans",
     description: "Compare different loan options to make an informed decision.",
     path: "/comparisons/compareLoans",
   },
   {
-    src: "/images/comparisons/compare-save-acc.png",
+    src: "/compare-save-acc.png",
     title: "Compare Saving Accounts",
     description:
       "Explore a wide range of savings accounts & find the best option for you.",
     path: "/comparisons/compareSavingAcc",
   },
   {
-    src: "/images/comparisons/compare-fixed-dep.png",
+    src: "/compare-fixed-dep.png",
     title: "Compare Fixed Deposit Accounts",
     description: "Maximize your savings with fixed deposit account comparison.",
     path: "/comparisons/compareFixedDeposit",
@@ -152,7 +152,7 @@ function NavListMenu() {
               <div className="flex flex-col gap-3">
                 <div>
                   <Image
-                    src="/images/comparisons/compare-pic.png"
+                    src="/compare-pic.png"
                     alt="compare"
                     width={400}
                     height={50}
@@ -276,12 +276,7 @@ function NavListMenu() {
       <div className="block md:hidden">
         <Collapse open={isMobileMenuOpen} className="flex flex-col gap-3">
           {renderItems}
-          <Image
-            src="/images/comparisons/compare-pic.png"
-            alt="compare"
-            width={600}
-            height={40}
-          />
+          <Image src="/compare-pic.png" alt="compare" width={600} height={40} />
 
           <div className="flex items-center gap-2">
             <svg
