@@ -15,7 +15,7 @@ export async function getAllfixedeposits(queryParams) {
     // console.log(params
     //   );
     const response = await axios.get(
-      "http://34.124.252.231:8080/fixeddeposits",
+      "http://34.143.206.144:8080/fixeddeposits",
       {
         params: params,
       }
