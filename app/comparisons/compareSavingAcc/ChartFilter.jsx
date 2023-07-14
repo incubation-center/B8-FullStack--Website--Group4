@@ -10,11 +10,11 @@ const ChartFilter = () => {
   useEffect(() => {
     const seriesData = [
       {
-        name: "series1",
+        name: "ABA",
         data: [31, 40, 28, 51, 42, 109, 100],
       },
       {
-        name: "series2",
+        name: "Wing Bank",
         data: [11, 32, 45, 32, 34, 52, 41],
       },
     ];
