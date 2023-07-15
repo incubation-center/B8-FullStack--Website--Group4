@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import Faq from "../components/Faq";
+import Link from "next/link";
 
 const promoData = [
   {
@@ -32,7 +33,10 @@ const LandingPage = () => {
     <div>
       <section className="sect1 py-24  px-4 sm:px-4 md:px-28 mt-20">
         <div className="sect1-div1 flex flex-col justify-center items-center">
-          <button className="flex justify-center items-center bg-red-50 font-medium text-sm gap-3 py-1.5 pl-1 pr-2.5 rounded-2xl ">
+          <Link
+            href="/aboutus"
+            className="flex justify-center items-center bg-red-50 font-medium text-sm gap-3 py-1.5 pl-1 pr-2.5 rounded-2xl "
+          >
             <p className="text-white bg-red-500 px-2.5 py-0.5 rounded-2xl shrink-0">
               New feature
             </p>
@@ -47,7 +51,7 @@ const LandingPage = () => {
                 w-auto h-auto"
               />
             </div>
-          </button>
+          </Link>
           <p className="max-w-5xl text-center text-gray-900 font-semibold text-4xl mt-4 sm:mt-4 sm:font-semibold md:font-bold  md:mt-5">
             Unlock Your Financial Potential with ProAdvisor's Innovative
             Solutions
@@ -58,12 +62,18 @@ const LandingPage = () => {
             decisions.
           </p>
           <div className="btn flex flex-col-reverse gap-y-3 sm:flex-col-reverse md:flex-row justify-center items-center font-semibold text-base sm:text-base md:text-lg mt-8 sm:mt-8 md:mt-12 md:gap-x-3.5">
-            <button className="learn-more-btn text-gray-700 rounded-lg px-[180px] sm:px-[180px] py-3 sm:py-3 md:px-5 md:py-3 border-gray-300 border-2 hover:bg-gray-50">
+            <Link
+              href="/aboutus"
+              className="learn-more-btn text-gray-700 rounded-lg px-[180px] sm:px-[180px] py-3 sm:py-3 md:px-5 md:py-3 border-gray-300 border-2 hover:bg-gray-50"
+            >
               Learn more
-            </button>
-            <button className="get-started-btn text-white bg-red-500 rounded-lg px-[180px] sm:px-[180px] py-3 sm:py-3 md:px-5 md:py-3 hover:bg-red-600">
+            </Link>
+            <Link
+              href="/account/signup/usersignupdetials"
+              className="get-started-btn text-white bg-red-500 rounded-lg px-[180px] sm:px-[180px] py-3 sm:py-3 md:px-5 md:py-3 hover:bg-red-600"
+            >
               Get started
-            </button>
+            </Link>
           </div>
           <Image
             src="/images/laptop-frame.png"
@@ -168,7 +178,8 @@ const LandingPage = () => {
             />
           </div>
           <div className="mt-[48px] md:mt-24 mx-8 flex flex-col gap-y-10 sm:gap-y-10 sm:flex-col md:flex-row justify-center items-center md:gap-x-8">
-            <div className="div1 flex flex-col justify-center items-center gap-y-5 ">
+            {/* Compare Loans */}
+            <div className="div1 flex flex-col justify-center items-center gap-y-5">
               <div className="bg-red-100 rounded-4xl w-12 h-12  border-8 border-primary-25 flex justify-center items-center">
                 <Image
                   src="/images/coin-swap.png"
@@ -187,7 +198,11 @@ const LandingPage = () => {
                   Compare different loan options to make an informed decision.
                 </p>
               </div>
-              <button className="flex flex-row gap-x-2">
+              {/* learn more button */}
+              <Link
+                href="/comparisons/compareLoans"
+                className="flex flex-row gap-x-2 hover:bg-[#FFF1F1] px-[18px] py-[10px] rounded-lg"
+              >
                 <p className="text-red-600 font-semibold text-base">
                   Learn more
                 </p>
@@ -198,9 +213,10 @@ const LandingPage = () => {
                   height={20}
                   className="w-auto h-auto"
                 />
-              </button>
+              </Link>
             </div>
-            <div className=" div2 flex flex-col justify-center items-center gap-y-5 ">
+            {/* Compare Saving Accounts */}
+            <div className=" div2 flex flex-col justify-center items-center gap-y-5">
               <div className="bg-red-100 rounded-4xl w-12 h-12  border-8 border-primary-25 flex justify-center items-center">
                 <Image
                   src="/images/target.png"
@@ -220,7 +236,11 @@ const LandingPage = () => {
                   option for you.
                 </p>
               </div>
-              <button className="flex flex-row gap-x-2">
+              {/* learn more button */}
+              <Link
+                href="/comparisons/compareSavingAcc"
+                className="flex flex-row gap-x-2 hover:bg-[#FFF1F1] px-[18px] py-[10px] rounded-lg"
+              >
                 <p className="text-red-600 font-semibold text-base">
                   Learn more
                 </p>
@@ -231,9 +251,10 @@ const LandingPage = () => {
                   height={20}
                   className="w-auto h-auto"
                 />
-              </button>
+              </Link>
             </div>
-            <div className="div3 flex flex-col justify-center items-center gap-y-5 ">
+            {/* Compare Fixed Deposit Accounts */}
+            <div className="div3 flex flex-col justify-center items-center gap-y-5">
               <div className="bg-red-100 rounded-4xl w-12 h-12  border-8 border-primary-25 flex justify-center items-center">
                 <Image
                   src="/images/dollar.png"
@@ -252,7 +273,11 @@ const LandingPage = () => {
                   Maximize your savings with fixed deposit account comparison.
                 </p>
               </div>
-              <button className="flex flex-row gap-x-2">
+              {/* learn more button */}
+              <Link
+                href="/comparisons/compareFixedDeposit"
+                className="flex flex-row gap-x-2 hover:bg-[#FFF1F1] px-[18px] py-[10px] rounded-lg"
+              >
                 <p className="text-red-600 font-semibold text-base">
                   Learn more
                 </p>
@@ -263,7 +288,7 @@ const LandingPage = () => {
                   height={20}
                   className="w-auto h-auto"
                 />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -342,10 +367,14 @@ const LandingPage = () => {
               promotions from banks and financial institutions in Cambodia.
             </p>
           </div>
+          {/* view more button */}
           <div className=" flex-col flex-grow-0 flex-shrink-0 items-center hidden sm:hidden md:block">
-            <button className="text-white font-semibold text-base py-3 px-5 bg-red-500 rounded-lg hover:bg-red-600">
+            <Link
+              href="/promotions"
+              className="text-white font-semibold text-base py-3 px-5 bg-red-500 rounded-lg hover:bg-red-600"
+            >
               View more
-            </button>
+            </Link>
           </div>
         </div>
         <div className="sect6-div2 flex flex-col sm:flex-col md:flex-row justify-around gap-8 px-8 ">

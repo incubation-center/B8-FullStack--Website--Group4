@@ -22,7 +22,7 @@ const CompareLoan = () => {
   return (
     <div className="pt-36">
       {/* first section */}
-      <div className="sect1 pb-24  px-4 sm:px-4 md:px-28">
+      {/* <div className="sect1 pb-24  px-4 sm:px-4 md:px-28">
         <div className="saveSect1 flex flex-col justify-center items-center">
           <p className="text-red-600 font-semibold text-sm sm:text-sm md:text-base">
             Compare Your Saving Accounts
@@ -43,10 +43,9 @@ const CompareLoan = () => {
             </button>
           </div>
         </div>
-        <BankList />
-      </div>
+      </div> */}
       {/* line */}
-      <hr className="border-b-1 border-gray-100 mx-4 sm:mx-4 md:mx-28" />
+      {/* <hr className="border-b-1 border-gray-100 mx-4 sm:mx-4 md:mx-28" /> */}
       {/* second section */}
       <div className="sect2 py-16 px-4 sm:px-4 md:px-28">
         {/* heading */}
