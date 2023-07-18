@@ -3,7 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { LuSend } from "react-icons/lu";
+import {getReply} from "../api/chat/chatgpt";
 import { useState, useEffect, useRef } from "react";
+
+
 
 export default function Chat() {
   const [messages, setmessages] = useState([]);
@@ -45,8 +48,9 @@ export default function Chat() {
     document.getElementById("user-input").value = "";
   };
 
-  const generateChatbotReply = (userInput) => {
-    return "Thank you for asking!.";
+  const generateChatbotReply = async (userInput) => {
+    const chatbotReply = await getReply(userInput);
+    return chatbotReply;
   };
 
   const handleInputKeyDown = (event) => {
