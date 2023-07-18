@@ -16,12 +16,14 @@ const currency = [
   { value: "USD", label: "USD" },
 ];
 
+
 const terms = [
   { value: "monthly", label: "Interest Rate (AER)" },
   { value: "yearly", label: "After 1 month" },
   { value: "yearly", label: "After 1 years" },
   { value: "yearly", label: "After 5 years" },
 ];
+
 
 const CompareSaveAccForm = () => {
   // const [selectedBank, setSelectedBank] = useState([]);
