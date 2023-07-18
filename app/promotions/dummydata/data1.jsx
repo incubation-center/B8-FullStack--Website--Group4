@@ -1,3 +1,4 @@
+// promotion data
 const data1 = [
   {
     img: "/images/seagame-banner.png",

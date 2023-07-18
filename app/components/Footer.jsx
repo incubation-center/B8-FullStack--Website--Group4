@@ -17,13 +17,13 @@ const Footer = () => {
         <div className="foot-sect1-btn flex flex-col-reverse gap-y-3 text-base font-semibold sm:flex sm:flex-col-reverse sm:text-base sm:gap-y-3 md:text-base md:flex md:flex-row md:gap-x-3">
           <Link
             href="/aboutus"
-            className=" text-gray-700 rounded-lg px-5 py-3 border-gray-300 border-2 hover:bg-gray-50"
+            className=" text-gray-700 rounded-lg px-5 py-3 border-gray-300 border-2 hover:bg-gray-50 text-center"
           >
             Learn more
           </Link>
           <Link
             href="/account/signup/usersignupdetials"
-            className=" text-white rounded-lg px-5 py-3  bg-red-500 hover:bg-red-600"
+            className=" text-white rounded-lg px-5 py-3  bg-red-500 hover:bg-red-600 text-center"
           >
             Get started
           </Link>

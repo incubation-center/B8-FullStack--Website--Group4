@@ -6,11 +6,13 @@ import { detailAtom } from "../datailAtom";
 import { FiCopy } from "react-icons/fi";
 import { BsFacebook, BsTwitter, BsInstagram } from "react-icons/bs";
 import { RiSendPlaneLine } from "react-icons/ri";
+import PromotionOffer from "@/app/components/PromotionOffer";
 
 const PromoDetails = ({ params }) => {
   const [detailData, setDetailData] = useRecoilState(detailAtom);
   const postId = params.id;
-  const detailId = parseInt(postId) + 1;
+  // const detailId = parseInt(postId) + 1;
+  const detailId = parseInt(postId);
   // console.log(postId, "this is my post id");
   // console.log(detailId, "this is my detail id");
   // console.log(detailData, "this is my detail data");
@@ -51,7 +53,7 @@ const PromoDetails = ({ params }) => {
             <div className="flex lg:flex-row md:flex-row sm:flex-col sm:gap-5 mt-5 items-center justify-between">
               <div className="flex flex-row gap-20">
                 <div className="flex flex-col">
-                  <p className="bankName">Writeen by</p>
+                  <p className="bankName">Written by</p>
                   <p className="text-gray-900 text-[18px] font-semibold">
                     {"Meng Lavy"}
                   </p>
@@ -162,7 +164,7 @@ const PromoDetails = ({ params }) => {
               </div>
             </div>
 
-            <div className="sect6 flex flex-col gap-16 py-16">
+            {/* <div className="sect6 flex flex-col gap-16 py-16">
               <div className="sect6-div1 flex flex-col sm:flex-col sm:items-start md:flex  md:flex-row md:justify-between md:items-start pt-2.5 gap-x-[400px]">
                 <div className="">
                   <p className="text-red-600 text-sm sm:text-sm md:text-base font-semibold mb-2 sm:mb-2 md:mb-3">
@@ -183,41 +185,15 @@ const PromoDetails = ({ params }) => {
                   </div>
                 </div>
               </div>
-              {/* <div className="sect6-div2 flex flex-col sm:flex-col md:flex-row justify-around gap-8">
-                {detailData.data.promotion.((data, i) => (
-                  <div key={index} className="promo1 flex flex-col basis-full">
-                    <Image
-                      src={data.img}
-                      alt="seagame-banner"
-                      width={384}
-                      height={240}
-                      className="w-auto h-auto mb-6"
-                    />
-                    <div className="flex flex-col">
-                      <p className="bankName">{data.bankName}</p>
-                      <div className="flex flex-row items-start justify-between">
-                        <p className="promotionName">{data.promoName}</p>
-                        <div>
-                          <Image
-                            src="/images/go-icon.png"
-                            alt="go icon"
-                            width={24}
-                            height={24}
-                          />
-                        </div>
-                      </div>
-                      <p className="promotionContent">{data.promoContent}</p>
-                    </div>
-                  </div>
-                ))}
-              </div> */}
+              
               <div className="flex justify-center items-center sm:block md:hidden">
                 <div className="text-white font-semibold text-base py-3 px-[180px] sm:px-[180px] md:px-5 bg-red-500 rounded-lg hover:bg-red-600">
                   View more
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
+          <PromotionOffer />
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+
 const promoData = [
   {
     img: "/images/seagame-banner.png",
@@ -41,9 +43,9 @@ const PromotionOffer = () => {
           </p>
         </div>
         <div className=" flex-col flex-grow-0 flex-shrink-0 items-center hidden sm:hidden md:block">
-          <button className="text-white font-semibold text-base py-3 px-5 bg-red-500 rounded-lg hover:bg-red-600">
+          <Link href="/promotions" className="text-white font-semibold text-base py-3 px-5 bg-red-500 rounded-lg hover:bg-red-600">
             View more
-          </button>
+          </Link>
         </div>
       </div>
       <div className="sect6-div2 flex flex-col sm:flex-col md:flex-row justify-around gap-8 px-8 ">
