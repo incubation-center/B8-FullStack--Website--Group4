@@ -5,20 +5,37 @@ function LastedPromotion() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch("http://34.143.206.144:8080/promotion");
-        const data = await response.json();
-        setPosts(data.data.promotions);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchPosts = async () => {
+  //     try {
+  //       const response = await fetch("http://35.240.154.65:8080/promotion");
+  //       const data = await response.json();
+  //       setPosts(data.data.promotions);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error("Error fetching posts:", error);
+  //     }
+  //   };
 
-    fetchPosts();
-  }, []);
+  //   fetchPosts();
+  // }, []);
+
+  async function fetchPosts() {
+    const response = await fetch("http://35.240.154.65:8080/promotion");
+    const data = await response.json();
+    setPosts(data.data.promotions);
+    setLoading(false);
+    return data;
+  }
+
+  async function fetchLatestPosts() {
+    const posts = await fetchPosts();
+    const sortedPosts = posts.sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
+    return sortedPosts.slice(0, 3); // Get only the first 3 latest posts
+  }
+
 
   return (
     <div className="flex justify-center">
@@ -32,7 +49,7 @@ function LastedPromotion() {
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-10">
-          {posts.slice(0, 6).map((item, index) => (
+          {posts.map((item, index) => (
             <Link
               href={`/promotions/${item.id}`}
               key={index}
@@ -92,3 +109,12 @@ function LastedPromotion() {
 }
 
 export default LastedPromotion;
+
+export async function getStaticProps() {
+  const posts = await fetchLatestPosts();
+  return {
+    props: {
+      posts,
+    },
+  };
+}

@@ -32,7 +32,7 @@ const Promotions = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const result = await fetch("http://34.143.206.144:8080/promotion");
+        const result = await fetch("http://35.240.154.65:8080/promotion");
         const data = await result.json();
         setPromotionData(data.data.promotions);
         console.log(data.data.promotions, "this is my data");
@@ -103,7 +103,7 @@ const Promotions = () => {
         </p>
       </div>
       {/* card */}
-      <LastedPromotion />
+      {/* <LastedPromotion /> */}
       
 
       {/* promotion */}

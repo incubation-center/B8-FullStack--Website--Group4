@@ -44,7 +44,7 @@ const CompareLoansForm = () => {
           <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
-                Select your bank
+                Select Banks
               </label>
               {mark}
             </div>
@@ -61,7 +61,7 @@ const CompareLoansForm = () => {
           <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
-                Loan type
+                Loan Types
               </label>
               {mark}
             </div>
@@ -85,7 +85,7 @@ const CompareLoansForm = () => {
           <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
-                Select Filter
+                Select Terms
               </label>
               {mark}
             </div>

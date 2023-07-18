@@ -34,7 +34,8 @@ const LandingPage = () => {
       <section className="sect1 py-24  px-4 sm:px-4 md:px-28 mt-20">
         <div className="sect1-div1 flex flex-col justify-center items-center">
           <Link
-            href="/aboutus"
+            // will change later if chatgpt ready
+            href="/landingPage"
             className="flex justify-center items-center bg-red-50 font-medium text-sm gap-3 py-1.5 pl-1 pr-2.5 rounded-2xl "
           >
             <p className="text-white bg-red-500 px-2.5 py-0.5 rounded-2xl shrink-0">
@@ -90,6 +91,7 @@ const LandingPage = () => {
             The trusted provider over 150+ companies from Cambodia, of accuracy
             rates and financial information
           </p>
+          {/* bank images */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-12 gap-y-4 mt-5">
             <Image
               src="/images/vattanac-bank.png"
@@ -158,7 +160,7 @@ const LandingPage = () => {
               <Image
                 src="/images/iphone-mockup.png"
                 alt="iphone-mockup"
-                // width={244}
+                // width={284}
                 // height={497.34}
                 fill
                 className="object-scale-down w-auto h-auto"

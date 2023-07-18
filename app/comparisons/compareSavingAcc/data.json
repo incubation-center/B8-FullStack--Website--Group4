@@ -1,14 +1,19 @@
 {
-  "textBelowOverview": {
-    "text1": "Dolor enim eu tortor urna sed duis nulla. Aliquam vestibulum, nulla odio nisl vitae. In aliquet pellentesque aenean hac vestibulum turpis mi bibendum diam. Tempor integer aliquam in vitae malesuada fringilla.",
-    "text2": "Elit nisi in eleifend sed nisi. Pulvinar at orci, proin imperdiet commodo consectetur convallis risus. Sed condimentum enim dignissim adipiscing faucibus consequat, urna. Viverra purus et erat auctor aliquam. Risus, volutpat vulputate posuere purus sit congue convallis aliquet. Arcu id augue ut feugiat donec porttitor neque. Mauris, neque ultricies eu vestibulum, bibendum quam lorem id. Dolor lacus, eget nunc lectus in tellus, pharetra, porttitor.",
-    "text3": "Ipsum sit mattis nulla quam nulla. Gravida id gravida ac enim mauris id. Non pellentesque congue eget consectetur turpis. Sapien, dictum molestie sem tempor. Diam elit, orci, tincidunt aenean tempus. Quis velit eget ut tortor tellus. Sed vel, congue felis elit erat nam nibh orci."
-  },
-
+  
+  "belowTextOverview": "With these top savings accounts and competitive rates, you have the opportunity to maximize your savings potential and achieve your financial objectives. Take advantage of these offers and start growing your savings today. Remember to consider the terms, fees, and additional benefits provided by each account to find the best fit for your specific financial goals",
   "softwareTools": "Pharetra morbi libero id aliquam elit massa integer tellus. Quis felis aliquam ullamcorper porttitor. Pulvinar ullamcorper sit dictumst ut eget a, elementum eu. Maecenas est morbi mattis id in ac pellentesque ac.",
   "otherResources": {
-    "resource1": "Lectus leo massa amet posuere. Malesuada mattis non convallis quisque. Libero sit et imperdiet bibendum quisque dictum vestibulum in non. Pretium ultricies tempor non est diam. Enim ut enim amet amet integer cursus. Sit ac commodo pretium sed etiam turpis suspendisse at.",
-    "resource2": "Tristique odio senectus nam posuere ornare leo metus, ultricies. Blandit duis ultricies vulputate morbi feugiat cras placerat elit. Aliquam tellus lorem sed ac. Montes, sed mattis pellentesque suscipit accumsan. Cursus viverra aenean magna risus elementum faucibus molestie pellentesque. Arcu ultricies sed mauris vestibulum."
+    "resource1": "To find the best savings accounts in 2023, you can utilize various resources to compare and evaluate different options. Here are some additional resources to consider:",
+    "resourceList": [
+      "Financial Comparison Websites: Websites like Bankrate, NerdWallet, and MoneySuperMarket provide comprehensive comparisons of savings accounts offered by different banks and financial institutions. These platforms often offer filters and search options to tailor the results based on your preferences.",
+      "Bank Websites: Visiting the official websites of different banks allows you to explore the savings account options they offer, along with their respective interest rates, terms, and fees. Many banks provide detailed information about their products online.",
+      "Financial Advisors: If you prefer personalized advice, consulting with a financial advisor can be beneficial. They can recommend savings accounts based on your financial goals, risk tolerance, and overall financial situation.",
+      "Online Forums and Communities: Engaging with online finance forums and communities can provide valuable insights and real-life experiences shared by individuals who have used or currently use specific savings accounts. Platforms like Reddit and Quora can be useful for this purpose.",
+      "Local Credit Unions: Consider checking out savings account options offered by local credit unions. Credit unions often offer competitive rates and personalized services to their members.",
+      "Financial Magazines and Publications: Reputable financial magazines and publications may feature articles and rankings of the best savings accounts based on the latest market trends and expert analysis.",
+      "Social Media and Influencers: Some financial influencers on social media platforms like YouTube and Instagram share their insights and recommendations for the best savings accounts. However, it's essential to verify the credibility and expertise of the source before making any decisions."
+    ],
+    "resource2": "Remember that the best savings account for you will depend on your unique financial goals, risk tolerance, and other factors. Always compare multiple options, read the terms and conditions carefully, and consider seeking professional advice if needed before opening a savings account."
   },
   "savingAcc": {
     "saveA1": "Savings accounts are a good option for achieving your money-saving goals. You’ll want to choose a savings account that offers a competitive annual percentage yield (APY) on your money. It can pay to choose one that either doesn’t have a monthly service fee or that has a minimum balance requirement you can meet to waive the fee.",
