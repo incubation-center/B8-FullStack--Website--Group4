@@ -1,3 +1,4 @@
+// our promotion data
 const data = [
     {
       id: 1,

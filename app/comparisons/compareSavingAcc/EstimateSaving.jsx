@@ -51,58 +51,69 @@ const EstimateSaving = () => {
           method="post"
           className="flex flex-col sm:flex sm:flex-col md:flex md:flex-row mt-7 gap-6 sm:gap-6 md:gap-8"
         >
-          {/* initial depsit */}
-          <div className="flex flex-col md:gap-[6px] sm:gap-3 gap-3 w-full">
-            <div className="flex justify-between">
-              <label>Initial Deposit</label>
-              {whiteMark}
-            </div>
+          <div className="flex md:flex-row flex-col sm:flex-col gap-8">
+            {/* initial depsit */}
+            <div className="flex flex-col md:gap-[6px] sm:gap-3 gap-3 w-full">
+              <div className="flex justify-between">
+                <label>Initial Deposit</label>
+                {whiteMark}
+              </div>
 
-            <input
-              type="number"
-              placeholder="$10,000"
-              className="inputStyle w-full"
-            />
-          </div>
-          {/* Interest Rate */}
-          <div className="flex flex-col md:gap-[6px] sm:gap-3 gap-3 w-full">
-            <div className="flex justify-between">
-              <label for="investment" className="">
-                Interest Rate
-              </label>
-              {whiteMark}
+              <input
+                type="number"
+                placeholder="$10,000"
+                className="inputStyle w-full"
+              />
             </div>
-            <select
-              id="invest-period"
-              name="invest-period"
-              className="selectStyle w-full"
-            >
-              <option value="monthly">1 year</option>
-              <option value="monthly">2 years</option>
-              <option value="yearly">3 years</option>
-            </select>
-          </div>
-          {/* term */}
-          <div className="flex flex-col md:gap-[6px] sm:gap-3 gap-3 w-full">
-            <div className="flex justify-between">
-              <label for="investment" className="">
-                Term
-              </label>
-              {whiteMark}
+            {/* Interest Rate */}
+            <div className="flex flex-col md:gap-[6px] sm:gap-3 gap-3 w-full">
+              <div className="flex justify-between">
+                <label for="investment" className="">
+                  Interest Rate
+                </label>
+                {whiteMark}
+              </div>
+              <select
+                id="invest-period"
+                name="invest-period"
+                className="selectStyle w-full"
+              >
+                <option value="monthly">1 year</option>
+                <option value="monthly">2 years</option>
+                <option value="yearly">3 years</option>
+              </select>
             </div>
+            {/* term */}
+            <div className="flex flex-col md:gap-[6px] sm:gap-3 gap-3 w-full">
+              <div className="flex justify-between">
+                <label for="investment" className="">
+                  Term
+                </label>
+                {whiteMark}
+              </div>
 
-            <select
-              id="invest-period"
-              name="invest-period"
-              className="selectStyle w-full"
+              <select
+                id="invest-period"
+                name="invest-period"
+                className="selectStyle w-full"
+              >
+                <option value="monthly">Less than a year</option>
+                <option value="monthly">2 months</option>
+                <option value="yearly">3 months</option>
+                <option value="monthly">4 months</option>
+                <option value="yearly">5 months</option>
+                <option value="yearly">More than 5 months</option>
+              </select>
+            </div>
+          </div>
+          {/* update result */}
+          <div className=" flex md:justify-end items-center mt-8  ">
+            <button
+              type="submit"
+              className="redButton w-full sm:w-full md:max-w-[155px] font-semibold "
             >
-              <option value="monthly">Less than a year</option>
-              <option value="monthly">2 months</option>
-              <option value="yearly">3 months</option>
-              <option value="monthly">4 months</option>
-              <option value="yearly">5 months</option>
-              <option value="yearly">More than 5 months</option>
-            </select>
+              Update result
+            </button>
           </div>
         </form>
       </div>

@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import BankInfoLoans from "./BankInfoLoans";
-import data from "/public/data.json";
 import ChooseSavAccListLoans from "./ChooseSavAccListLoans";
 import KnowSaveAcc from "./KnowSaveAcc";
 import SocialLink from "@/app/components/SocialLink";
+import data from "./data.json";
+import AboutLoanNumList from "./AboutLoanNumList";
+import NumListGetLoan from "./NumListGetLoan";
+import BulletListGetLoan from "./BulletListGetLoan";
 
 const TableContentLoans = () => {
   // what to know about saving accounts
@@ -53,7 +56,7 @@ const TableContentLoans = () => {
   return (
     <div>
       {/* table of content and best savings... */}
-      <div className="flex flex-col sm:flex sm:flex-col md:flex md:flex-row py-16 md:gap-[60px] ">
+      <div className="flex flex-col sm:flex sm:flex-col md:flex md:flex-row py-16 md:gap-[60px]">
         <div className="hidden sm:hidden md:block md:flex-col md:gap-8 max-w-[308px]">
           <hr className="border-b-1 border-gray-100 md:mb-8" />
           <div className="flex flex-col gap-4 min-w-[264px]">
@@ -66,21 +69,21 @@ const TableContentLoans = () => {
                 className={`${tableContent}`}
                 onClick={() => setlinkBestSaveAccLoans(true)}
               >
-                Best savings accounts and rates
+                Best loan accounts and rates
               </Link>
               <Link
                 href="/comparisons/compareLoans#choosesaveaccloans"
                 className={`${tableContent}`}
                 onClick={() => setlinkChooseSaveAccLoans(true)}
               >
-                How to choose a savings account
+                How to choose a loan
               </Link>
               <Link
                 href="/comparisons/compareLoans#knowsaveaccloans"
                 onClick={() => setLinkClickedLoans(true)}
                 className={`${tableContent}`}
               >
-                What to know about savings accounts
+                What to know about loans
               </Link>
             </div>
           </div>
@@ -96,44 +99,31 @@ const TableContentLoans = () => {
             className={`${linkBestSaveAccLoans ? "translate-y-20" : ""}`}
           >
             <h1 className="text-gray-900 font-semibold text-3xl">
-              Best savings accounts and rates in June 2023
+              Best Loan and rates in June 2023
             </h1>
-            <p className="mt-6 text-[#667085] text-lg">
-              Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam
-              suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum
-              quis montes, sit sit. Tellus aliquam enim urna, etiam. Mauris
-              posuere vulputate arcu amet, vitae nisi, tellus tincidunt. At
-              feugiat sapien varius id.
-            </p>
             <p className="mt-5 mb-12 text-[#667085] text-lg">
-              Eget quis mi enim, leo lacinia pharetra, semper. Eget in volutpat
-              mollis at volutpat lectus velit, sed auctor. Porttitor fames arcu
-              quis fusce augue enim. Quis at habitant diam at. Suscipit
-              tristique risus, at donec. In turpis vel et quam imperdiet. Ipsum
-              molestie aliquet sodales id est ac volutpat.
+              The best loan and rates will vary depending on individual
+              circumstances, including credit score, loan amount, loan purpose,
+              and the financial institution you choose.
             </p>
-            {/* chipmong bank */}
-            <div className="flex flex-col gap-6">
-              <BankInfoLoans />
-              <BankInfoLoans />
-              <BankInfoLoans />
-            </div>
+
+            <BankInfoLoans />
+
             {/* more text below bank info */}
             {/* use style "bodyText" in body */}
-            <div className="bodyText mt-6 flex flex-col gap-6 ">
-              <p className="">{data.textBelowOverview.text1}</p>
-              <p className="">{data.textBelowOverview.text2}</p>
-              <p className="">{data.textBelowOverview.text3}</p>
-            </div>
-            <div className="mt-12">
+
+            <p className="bodyText mt-6">{data.textBelowOverview}</p>
+            {/* software tools */}
+            {/* <div className="mt-12">
               <h1 className="titleText">Software and tools</h1>
               <p className="bodyText mt-4 ">{data.softwareTools}</p>
-            </div>
-            <div>
+            </div> */}
+            {/* resources */}
+            {/* <div>
               <h1 className="titleText mt-12">Other resources</h1>
               <p className="bodyText mt-12">{data.otherResources.resource1}</p>
               <p className="bodyText mt-6"> {data.otherResources.resource2}</p>
-            </div>
+            </div> */}
           </div>
           <hr className="border-b-1 border-gray-100 my-12" />
           {/* how to choose a savings account className={styles.marginTop}*/}
@@ -142,11 +132,11 @@ const TableContentLoans = () => {
             className={`${linkChooseSaveAccLoans ? "translate-y-20" : ""}`}
           >
             <h1 className="text-[#101828] font-semibold text-3xl">
-              How to choose a savings account
+              How to choose a loan
             </h1>
-            <p className="bodyText mt-6">{data.savingAcc.saveA1}</p>
-            <p className="bodyText mt-5">{data.savingAcc.saveA2}</p>
+            <p className="bodyText mt-6">{data.loan.loanIntro}</p>
             <ChooseSavAccListLoans />
+            <p className="bodyText mt-5">{data.loan.loanEnd}</p>
           </div>
           <hr className="border-b-1 border-gray-100 my-12" />
           {/* what to know about savings accounts */}
@@ -154,7 +144,31 @@ const TableContentLoans = () => {
             id="knowsaveaccloans"
             className={`${linkClickedLoans ? "translate-y-20" : ""}`}
           >
-            <KnowSaveAcc />
+            <div>
+              <h1 className="text-[#101828] font-semibold text-3xl">
+                What to know about loans
+              </h1>
+              <h2 className="titleText mt-6">
+                What is a loan and how does it work?
+              </h2>
+              <div className="bodyText mt-4">
+                <p>{data.aboutLoan.aboutLoanHead}</p>
+                <p className="mt-5">{data.aboutLoan.aboutLoanTitle}</p>
+                <AboutLoanNumList />
+                <p className="mt-5">{data.aboutLoan.aboutLoanEnd}</p>
+              </div>
+
+              <h2 className="titleText mt-6">
+                Who should get a savings account?
+              </h2>
+              <div className="bodyText mt-6">
+                <p className="">{data.getLoan.getLoanHead}</p>
+                <NumListGetLoan />
+                <p className="mt-5">{data.getLoan.secondHead}</p>
+                <BulletListGetLoan />
+                <p className="mt-5">{data.getLoan.endGetLoan}</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

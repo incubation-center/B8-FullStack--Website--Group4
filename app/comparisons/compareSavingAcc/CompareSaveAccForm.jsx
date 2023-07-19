@@ -109,7 +109,7 @@ const CompareSaveAccForm = () => {
         <div className="flex md:flex-row flex-col sm:flex-col gap-8 ">
           <div className="flex flex-col gap-3 w-full">
             <label for="value" className="labelStyle">
-              Select your bank
+              Select Banks
             </label>
             <MultiSelect
               options={sortedBanks.map((bank) => {
@@ -124,7 +124,7 @@ const CompareSaveAccForm = () => {
           {/* <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
-                Select your bank
+                Select Filter
               </label>
             </div>
             <Select

@@ -57,7 +57,7 @@ const SavingLineChart = () => {
     };
   }, []);
 
-  return <div ref={chartRef} />;
+  return <div className="mb-12" ref={chartRef} />;
 };
 
 export default SavingLineChart;
