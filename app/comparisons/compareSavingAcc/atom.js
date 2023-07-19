@@ -10,12 +10,18 @@ export const selectedBankState = atom({
   default: [],
 });
 
+export const selectedCurrencyState = atom({
+  key: "selectedCurrencyState",
+  default: undefined,
+});
+
 export const filteredBankDataAtom = selector({
   key: "filteredBankDataAtom",
-  get: ({ get }) => {
-    const selectedBank = get(selectedBankState);
+  get: async ({ get }) => {
+    const selectedBank = get(selectedBankState) || [];
+    const currency = get(selectedCurrencyState) || undefined;
 
-    if (selectedBank.length === 0) return null;
+    return [];
 
     const bankData = get(bankDataAtom);
 

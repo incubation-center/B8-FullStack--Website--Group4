@@ -8,14 +8,14 @@ import { MultiSelect } from "react-multi-select-component";
 import Select from "react-select";
 import { fetchAllBankData } from "./fetchAllBankData";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { selectedBankState } from "./atom";
-
+import { selectedBankState, selectedCurrencyState } from "./atom";
+import { fetchBankDataByParams } from "./fetchAllBankData";
+import { fetchAllBankDataOld } from "./fetchAllBankData";
 
 const currency = [
-  { value: "KHM", label: "KHM" },
+  { value: "KHR", label: "KHR" },
   { value: "USD", label: "USD" },
 ];
-
 
 const terms = [
   { value: "monthly", label: "Interest Rate (AER)" },
@@ -23,7 +23,6 @@ const terms = [
   { value: "yearly", label: "After 1 years" },
   { value: "yearly", label: "After 5 years" },
 ];
-
 
 const CompareSaveAccForm = () => {
   // const [selectedBank, setSelectedBank] = useState([]);
@@ -34,25 +33,35 @@ const CompareSaveAccForm = () => {
   const [selectedBankRecoil, setSelectedBankRecoil] =
     useRecoilState(selectedBankState);
 
+  const [selectedCurrencyAtom, setSelectedCurrencyAtom] = useRecoilState(
+    selectedCurrencyState
+  );
+
   const [selectedBank, setSelectedBank] = useState([]);
 
   useEffect(() => {
     const fecthData = async () => {
-      const data = await fetchAllBankData();
+      const data = await fetchAllBankDataOld();
       setBankData(data);
     };
     fecthData();
   }, []);
 
-
   // sort bank name
   const sortedBanks = [...new Set(bankData.map((bank) => bank.bank))].sort();
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // setShowSelectedBank(true);
-    console.log(selectedBank, "selectedBank");
-    setSelectedBankRecoil(selectedBank.map((bank) => bank.value));
+
+    // setSelectedBankRecoil(selectedBank.map((bank) => bank.value));
+    // setSelectedCurrencyAtom(selectedCurrency.value);
+
+    const res = await fetchBankDataByParams(
+      selectedBank.map((bank) => bank.value),
+      selectedCurrency.value
+    );
+
+    console.log(res, "res");
   };
 
   return (
