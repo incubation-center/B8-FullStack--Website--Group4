@@ -3,14 +3,15 @@
 import React from "react";
 import Image from "next/image";
 import { LuSend } from "react-icons/lu";
-import {getReply} from "../api/chat/chatgpt";
+import { getReply } from "../api/chat/chatgpt";
 import { useState, useEffect, useRef } from "react";
 
-
-
 export default function Chat() {
-  const [messages, setmessages] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [userInput, setUserInput] = useState("");
+  const [loading, setLoading] = useState(false);
   const chatContainerRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
     scrollToBottom();
@@ -21,36 +22,45 @@ export default function Chat() {
   };
 
   const handleSendMessage = () => {
-    const userInput = document.getElementById("user-input").value;
-
-    if (userInput.trim() === "") {
+    const trimmedInput = userInput.trim();
+    if (trimmedInput === "") {
       return;
     }
 
-    const chatbotReply = generateChatbotReply(userInput);
-    const userTimestemp = new Date().toLocaleString("en-US", {
-      weekday: "long",
-      hour: "numeric",
-      minute: "numeric",
-    });
-    const chatbotTimestemp = new Date().toLocaleString("en-US", {
+    setLoading(true);
+    setUserInput("");
+    addMessage({ sender: "You", message: trimmedInput });
+
+    // Simulate chatbot response after 1 to 3 seconds
+    setTimeout(() => {
+      setLoading(false);
+      const chatbotReply = generateChatbotReply(trimmedInput);
+      addMessage({ sender: "Chatbot", message: chatbotReply });
+    }, getRandomDelay());
+  };
+
+  const addMessage = (message) => {
+    const timestamp = new Date().toLocaleString("en-US", {
       weekday: "long",
       hour: "numeric",
       minute: "numeric",
     });
 
-    setmessages((prevMessages) => [
-      ...prevMessages,
-      { sender: "You", message: userInput, timestemp: userTimestemp },
-      { sender: "Chatbot", message: chatbotReply, timestemp: chatbotTimestemp },
-    ]);
-
-    document.getElementById("user-input").value = "";
+    setMessages((prevMessages) => [...prevMessages, { ...message, timestamp }]);
   };
 
   const generateChatbotReply = async (userInput) => {
-    const chatbotReply = await getReply(userInput);
-    return chatbotReply;
+    try {
+      const response = await getReply(userInput);
+      return response.data['answer'];
+    } catch (error) {
+      console.error(error);
+      return 'Sorry, there was an error processing your request.';
+    }
+  };
+
+  const getRandomDelay = () => {
+    return Math.floor(Math.random() * 2000) + 1000; // Random delay between 1000ms and 3000ms (1 to 3 seconds)
   };
 
   const handleInputKeyDown = (event) => {
@@ -97,7 +107,6 @@ export default function Chat() {
           </div>
           {messages.map((message, index) => (
             <div key={index} className="flex flex-col w-full px-4">
-              {/* <div className='w-[300px] '> */}
               <div
                 className={`flex flex-row w-[300px] justify-between -mb-2 ${
                   message.sender === "You" ? "self-end" : " self-start"
@@ -107,7 +116,7 @@ export default function Chat() {
                   {message.sender === "You" ? "" : "Chatbot"}
                 </p>
                 <p className="flex text-[12px] text-gray-600">
-                  {message.timestemp}
+                  {message.timestamp}
                 </p>
               </div>
               <div
@@ -128,7 +137,6 @@ export default function Chat() {
                 </p>
               </div>
             </div>
-            // </div>
           ))}
         </div>
 
@@ -142,10 +150,14 @@ export default function Chat() {
                 autoComplete="off"
                 placeholder="Message..."
                 onKeyDown={handleInputKeyDown}
+                ref={inputRef}
+                value={userInput}
+                onChange={(event) => setUserInput(event.target.value)}
               />
             </div>
             <div
               onClick={handleSendMessage}
+              disabled={loading}
               className="flex w-[50px] h-[50px] bg-red-500 rounded-lg px-3 py-3 hover:bg-red-600"
               aria-label="Send"
             >

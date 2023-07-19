@@ -99,7 +99,7 @@ const CompareSavingAcc = () => {
         </div>
         {/* estimate saving form */}
         <EstimateSaving />
-        <FeatureOfferBank />
+        {/* <FeatureOfferBank /> */}
         <PromotionOffer />
         <DisplayContent />
 

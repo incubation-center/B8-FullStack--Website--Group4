@@ -5,6 +5,14 @@ export const bankDataAtom = atom({
   default: [],
 });
 
+export const savingChartDataAtom = atom({
+  key: "savingChartDataAtom",
+  default: {
+    data: [],
+    categories: [],
+  },
+});
+
 export const selectedBankState = atom({
   key: "selectedBankState",
   default: [],
@@ -15,22 +23,17 @@ export const selectedCurrencyState = atom({
   default: undefined,
 });
 
-export const filteredBankDataAtom = selector({
+export const isFilteredBankDataState = atom({
+  key: "isFilteredBankDataState",
+  default: false,
+});
+
+export const filteredBankDataAtom = atom({
   key: "filteredBankDataAtom",
-  get: async ({ get }) => {
-    const selectedBank = get(selectedBankState) || [];
-    const currency = get(selectedCurrencyState) || undefined;
+  default: [],
+});
 
-    return [];
-
-    const bankData = get(bankDataAtom);
-
-    if (bankData.length > 0) {
-      return bankData.filter((bank) => {
-        return selectedBank.includes(bank.bank);
-      });
-    }
-
-    return [];
-  },
+export const filteredSavingChartDataAtom = atom({
+  key: "filteredSavingChartDataAtom",
+  default: [],
 });

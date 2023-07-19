@@ -8,8 +8,17 @@ import { MultiSelect } from "react-multi-select-component";
 import Select from "react-select";
 import { fetchAllBankData } from "./fetchAllBankData";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { selectedBankState, selectedCurrencyState } from "./atom";
-import { fetchBankDataByParams } from "./fetchAllBankData";
+import {
+  selectedBankState,
+  selectedCurrencyState,
+  isFilteredBankDataState,
+  filteredBankDataAtom,
+  filteredSavingChartDataAtom,
+} from "./atom";
+import {
+  fetchBankDataByParams,
+  fetchAllSavingLineChartByParams,
+} from "./fetchAllBankData";
 import { fetchAllBankDataOld } from "./fetchAllBankData";
 
 const currency = [
@@ -25,19 +34,18 @@ const terms = [
 ];
 
 const CompareSaveAccForm = () => {
-  // const [selectedBank, setSelectedBank] = useState([]);
-  const [selectedCurrency, setSelectedCurrency] = useState([]);
-  const [selectedTerm, setSelectedTerm] = useState([]);
+  const [selectedBank, setSelectedBank] = useState([]);
+  const [selectedCurrency, setSelectedCurrency] = useState(null);
   const [bankData, setBankData] = useState([]);
 
-  const [selectedBankRecoil, setSelectedBankRecoil] =
-    useRecoilState(selectedBankState);
-
-  const [selectedCurrencyAtom, setSelectedCurrencyAtom] = useRecoilState(
-    selectedCurrencyState
+  const [isFilteredBankData, setIsFilteredBankData] = useRecoilState(
+    isFilteredBankDataState
   );
-
-  const [selectedBank, setSelectedBank] = useState([]);
+  const [filteredBankData, setFilteredBankData] =
+    useRecoilState(filteredBankDataAtom);
+  const [filteredSavingChart, setfilteredSavingChart] = useRecoilState(
+    filteredSavingChartDataAtom
+  );
 
   useEffect(() => {
     const fecthData = async () => {
@@ -53,16 +61,43 @@ const CompareSaveAccForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // setSelectedBankRecoil(selectedBank.map((bank) => bank.value));
-    // setSelectedCurrencyAtom(selectedCurrency.value);
+    if (selectedBank.length === 0 && !selectedCurrency) {
+      setIsFilteredBankData(false);
+      return;
+    }
 
     const res = await fetchBankDataByParams(
       selectedBank.map((bank) => bank.value),
-      selectedCurrency.value
+      selectedCurrency?.value
     );
 
-    console.log(res, "res");
+    const chart = await fetchAllSavingLineChartByParams(
+      selectedBank.map((bank) => bank.value),
+      selectedCurrency?.value
+    );
+
+    console.log("filtered bank data", res);
+
+    setIsFilteredBankData(true);
+    setFilteredBankData(res);
+    setfilteredSavingChart(chart);
   };
+
+  const handleClearFilter = async (event) => {
+    event.preventDefault();
+
+    console.log("clear filter", selectedBank, selectedCurrency);
+
+    setSelectedBank([]);
+    setSelectedCurrency(null);
+
+    setIsFilteredBankData(false);
+    setFilteredBankData([]);
+    setfilteredSavingChart([]);
+  };
+
+  const isSelectedFilter = () =>
+    selectedBank.length > 0 || selectedCurrency !== null ? true : false;
 
   return (
     <div>
@@ -86,7 +121,7 @@ const CompareSaveAccForm = () => {
             />
           </div>
 
-          <div className="flex flex-col gap-3 w-full">
+          {/* <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
                 Select your bank
@@ -97,7 +132,7 @@ const CompareSaveAccForm = () => {
               onChange={setSelectedTerm}
               options={terms}
             />
-          </div>
+          </div> */}
 
           <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
@@ -106,14 +141,29 @@ const CompareSaveAccForm = () => {
               </label>
             </div>
             <Select
+              key={`my_unique_select_key__${selectedCurrency}`}
               defaultValue={selectedCurrency}
-              onChange={setSelectedCurrency}
+              onChange={(state) => {
+                setSelectedCurrency(state);
+                console.log(state);
+              }}
               options={currency}
+              isClearable
             />
           </div>
         </div>
 
-        <div className=" flex md:justify-end items-center mt-8  ">
+        <div className="flex flex-row sm:flex-col md:flex-row md:justify-end items-center mt-8  gap-4">
+          {isSelectedFilter() && (
+            <button
+              type="submit"
+              className="text-gray-700 w-full sm:w-full md:max-w-[155px] font-semibold
+             rounded-lg px-[180px] sm:px-[180px] py-2.5 md:px-5 border-gray-300 border-2 hover:bg-gray-50"
+              onClick={handleClearFilter}
+            >
+              Clear filter
+            </button>
+          )}
           <button
             type="submit"
             className="redButton w-full sm:w-full md:max-w-[155px] font-semibold "

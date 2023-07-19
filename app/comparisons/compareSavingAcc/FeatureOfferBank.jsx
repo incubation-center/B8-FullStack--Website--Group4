@@ -6,16 +6,23 @@ import { useRecoilState } from "recoil";
 import { bankDataAtom } from "./atom";
 import Image from "next/image";
 import ImageDisplay from "@/app/components/ImageDisplay";
-import { fetchAllBankData } from "./fetchAllBankData";
+import { fetchAllBankData, fetchAllSavingLineChart } from "./fetchAllBankData";
 import { useRecoilValue } from "recoil";
-import { filteredBankDataAtom } from "./atom";
+import {
+  filteredBankDataAtom,
+  isFilteredBankDataState,
+  savingChartDataAtom,
+} from "./atom";
 
 const FeatureOfferBank = () => {
   const [bankData, setBankData] = useRecoilState(bankDataAtom);
+  const [savingChart, setSavingChart] = useRecoilState(savingChartDataAtom);
+
   const [loading, setLoading] = useState(true);
 
   const filteredBankData = useRecoilValue(filteredBankDataAtom);
-  console.log(filteredBankData, "filteredBankData");
+  const isFilteredBankData = useRecoilValue(isFilteredBankDataState);
+  // console.log(filteredBankData, "filteredBankData");
 
   useEffect(() => {
     console.log(filteredBankData, "filteredBankData");
@@ -26,8 +33,12 @@ const FeatureOfferBank = () => {
       const fetchData = async () => {
         // const result = await fetch(process.env.NEXT_PUBLIC_GETALLSAVINGS);
         const result = await fetchAllBankData();
-        console.log(result, "result");
+        const chart = await fetchAllSavingLineChart();
+
+        console.log(chart, "result");
+
         setBankData(result);
+        setSavingChart(chart);
         setLoading(false);
       };
       fetchData();
@@ -65,38 +76,72 @@ const FeatureOfferBank = () => {
           <div className="">
             <table className="w-full gap-8 border-1 border-gray-200 bg-white shadow-md p-4 relative">
               <thead className="w-full sticky bg-white top-[-1px] left-0 border-none">
-                <tr className=" mx-4 mt-5">
-                  <th>Compnay</th>
-                  <th className="ml-[50px]">Interest Rate</th>
-                  <th className="mr-[25px]">2 months</th>
-                  <th className="mr-[100px]">3 months</th>
+                <tr className="mx-4 mt-5">
+                  <th className="">Compnay</th>
+                  <th className="">Interest Rate</th>
+                  <th className="">Currency</th>
+                  <th className="">Condition</th>
                 </tr>
               </thead>
               <tbody>
                 {/* filtered bank data */}
-                {filteredBankData &&
+                {isFilteredBankData &&
                   filteredBankData.length > 0 &&
                   filteredBankData.map((bank, index) => (
                     <tr
                       key={index}
                       className="padding-4 border border-b-2 [&>td]:p-4"
                     >
-                      <td className="flex flex-row gap-5 ml-5">
-                        <Image
-                          // src={bank.bankLogo}
-                          // src={renderBankLogo(bank.bank)}
-                          alt={bank.bank}
-                          width={184}
-                          height={48}
-                          className="w-[60px] h-[60px] rounded-full"
-                        />
+                      <td className="flex lg:flex-row sm:flex-col gap-5 ml-5">
+                        {bank.logo && (
+                          <img
+                            src={bank.logo}
+                            alt={bank.bank}
+                            className="w-[60px] h-[60px] object-contain"
+                          />
+                        )}
+                        <div className="flex flex-row justify-between items-center">
+                          <div className="flex flex-col gap-[4px]">
+                            <h1 className="companyName">{bank.bank}</h1>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="text-center bg-gray-100">
+                        <h1 className="offerDetail">{bank.rate}%</h1>
+                        <p className="offerTitle">Interest rate (AER)</p>
+                      </td>
+                      <td className="text-center">
+                        <h1 className="offerDetail mx-10">{bank.ccy}</h1>
+                        <p className="offerTitle">Type</p>
+                      </td>
+                      <td className="text-center max-w-[200px]">
+                        <h1 className="offerDetail">{bank.condition}</h1>
+                      </td>
+                    </tr>
+                  ))}
+
+                {/* all bank data */}
+                {!isFilteredBankData &&
+                  bankData.map((bank, index) => (
+                    <tr
+                      key={index}
+                      className="padding-4 border border-b-2 [&>td]:p-4"
+                    >
+                      <td className="flex lg:flex-row sm:flex-col justify-start items-center gap-5 ml-5">
+                        {bank.logo && (
+                          <img
+                            src={bank.logo}
+                            alt={bank.bank}
+                            className="w-[60px] h-[60px] object-contain "
+                          />
+                        )}
                         <div className="flex flex-row justify-between">
                           <div className="flex flex-col gap-[4px]">
                             <h1 className="companyName">{bank.bank}</h1>
-                            <p className="text-[#667085] text-sm">
-                              {bank.location}
-                            </p>
-                            <div className="flex flex-row items-center gap-[11px]">
+                            {/* <p className="text-[#667085] text-sm">
+                              {bank.condition}
+                            </p> */}
+                            {/* <div className="flex flex-row items-center gap-[11px]">
                               <p className="flex items-center text-[#344054] text-base font-medium">
                                 {bank.rate}
                               </p>
@@ -104,73 +149,23 @@ const FeatureOfferBank = () => {
                                 className="flex items-center justify-center"
                                 count={bank.rate}
                               />
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </td>
                       <td className="text-center bg-gray-100">
-                        <h1 className="offerDetail">{bank.currency}</h1>
+                        <h1 className="offerDetail">{bank.rate}%</h1>
+                        <p className="offerTitle">Interest rate (AER)</p>
+                      </td>
+                      <td className="text-center">
+                        <h1 className="offerDetail mx-10">{bank.ccy}</h1>
                         <p className="offerTitle">Type</p>
                       </td>
-                      <td className="text-center">
-                        <h1 className="offerDetail">{"Money $"}</h1>
-                        <p className="offerTitle">Value (Gorss)</p>
-                      </td>
-                      <td className="text-center">
-                        <h1 className="offerDetail">{"money $"}</h1>
-                        <p className="offerTitle">Value (Gross)</p>
+                      <td className="text-center max-w-[200px]">
+                        <h1 className="offerDetail">{bank.condition}</h1>
                       </td>
                     </tr>
                   ))}
-
-                {/* {!filteredBankData && Object.keys(bankData)} */}
-                {/* all bank data */}
-                {Object.keys(bankData).map((bank, index) => (
-                  <tr
-                    key={index}
-                    className="padding-4 border border-b-2 [&>td]:p-4"
-                  >
-                    <td className="flex flex-row gap-5 ml-5">
-                      <Image
-                        src={bank.logo}
-                        // src={renderBankLogo(bank.bank)}
-                        alt={bank.logo}
-                        width={184}
-                        height={48}
-                        className="w-[60px] h-[60px] rounded-full"
-                      />
-                      <div className="flex flex-row justify-between">
-                        <div className="flex flex-col gap-[4px]">
-                          <h1 className="companyName">{bank.bank}</h1>
-                          <p className="text-[#667085] text-sm">
-                            {bank.condition}
-                          </p>
-                          <div className="flex flex-row items-center gap-[11px]">
-                            <p className="flex items-center text-[#344054] text-base font-medium">
-                              {bank.rate}
-                            </p>
-                            <ImageDisplay
-                              className="flex items-center justify-center"
-                              count={bank.rate}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="text-center bg-gray-100">
-                      <h1 className="offerDetail">{bank.rate}</h1>
-                      <p className="offerTitle">Type</p>
-                    </td>
-                    <td className="text-center">
-                      <h1 className="offerDetail">{"Money $"}</h1>
-                      <p className="offerTitle">Value (Gorss)</p>
-                    </td>
-                    <td className="text-center">
-                      <h1 className="offerDetail">{"money $"}</h1>
-                      <p className="offerTitle">Value (Gross)</p>
-                    </td>
-                  </tr>
-                ))}
               </tbody>
             </table>
           </div>

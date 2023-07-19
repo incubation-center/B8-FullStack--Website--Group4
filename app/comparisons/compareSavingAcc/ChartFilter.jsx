@@ -24,7 +24,8 @@ const ChartFilter = () => {
       {
         name: "ACELEDA",
         data: [33, 32, 45, 32, 44, 52, 41],
-      },{
+      },
+      {
         name: "STABANA",
         data: [0, 22, 45, 33, 34, 52, 41],
       },
@@ -38,7 +39,7 @@ const ChartFilter = () => {
       series: seriesData,
       chart: {
         height: 350,
-        type: "area",
+        // type: "area",
         zoom: {
           enabled: false,
         },
