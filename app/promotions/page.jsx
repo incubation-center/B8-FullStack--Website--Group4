@@ -13,7 +13,7 @@ import { promoDataAtom } from "./promoData";
 import Faq from "../components/Faq";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
-import LastedPromotion from "../components/LastedPromotion";
+// import LastedPromotion from "../components/LastedPromotion";
 // import { useRecoilState } from "recoil";
 
 const Promotions = () => {
@@ -91,7 +91,7 @@ const Promotions = () => {
       </div>
 
       {/* Our promotion */}
-      <div className="py-16 ">
+      {/* <div className="py-16 ">
         <h1 className="bankName text-center">Our Promotions</h1>
         <p className="promotionName text-center">
           Cutting-edge features for comparisons
@@ -101,7 +101,7 @@ const Promotions = () => {
           make <br></br> informed decisions based on your unique needs and
           preferences.
         </p>
-      </div>
+      </div> */}
       {/* card */}
       {/* <LastedPromotion /> */}
       

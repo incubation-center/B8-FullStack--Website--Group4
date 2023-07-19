@@ -153,9 +153,9 @@ const BankInfoLoans = () => {
             </div>
             {/* more info on overview */}
             <div className=" md:flex-col mt-8 gap-3 hidden sm:hidden md:block ">
-              {overviewTexts.map((text, index) => (
+              {Object.values(bank.overviewList).map((text, index) => (
                 <div key={index} className="flex flex-row items-center gap-2">
-                  {listIcon}
+                  <div className="min-w-[15px] h-auto">{listIcon}</div>
                   <p className="text-[#667085] text-base">{text}</p>
                 </div>
               ))}
@@ -168,7 +168,7 @@ const BankInfoLoans = () => {
               <div className="mb-8">
                 {" "}
                 <div className=" flex flex-col mt-8 gap-[16px] ">
-                  {overviewTexts.map((text, index) => (
+                  {Object.values(bank.overviewList).map((text, index) => (
                     <div
                       key={index}
                       className="flex flex-row justify-start items-start gap-3 "

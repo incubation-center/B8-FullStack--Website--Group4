@@ -1,7 +1,7 @@
 import React from "react";
 import data from "./data";
 
-const ChooseFixedDepoList = () => {
+const SecondNumlist = () => {
   const olStyles = {
     listStyleType: "decimal", // Set the list item numbering style to decimal
     paddingLeft: "20px", // Add some left padding for indentation
@@ -9,11 +9,11 @@ const ChooseFixedDepoList = () => {
 
   return (
     <ol style={olStyles} className="bodyText mt-6">
-      {data.fixedDepoAcc.fixedDepoAccList.map((item, index) => (
+      {data.aboutFixedDepoAcc.fixedDepoAccSecondList.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
     </ol>
   );
 };
 
-export default ChooseFixedDepoList;
+export default SecondNumlist;

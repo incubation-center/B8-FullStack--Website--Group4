@@ -22,7 +22,7 @@ const PromoDetails = ({ params }) => {
       const fetchData = async () => {
         console.log(detailId, "this is my detail id");
         const result = await fetch(
-          `http://34.143.206.144:8080/promotion/{id}?id=${detailId}`
+          `http://35.240.154.65:8080/promotion/{id}?id=${detailId}`
         );
 
         const data = await result.json();
@@ -55,7 +55,7 @@ const PromoDetails = ({ params }) => {
                 <div className="flex flex-col">
                   <p className="bankName">Written by</p>
                   <p className="text-gray-900 text-[18px] font-semibold">
-                    {"Meng Lavy"}
+                    {"Pich Sokha"}
                   </p>
                 </div>
                 <div className="flex flex-col">
@@ -112,7 +112,7 @@ const PromoDetails = ({ params }) => {
                     className="w-[40px] h-[40px] rounded-full"
                   />
                   <div className="flex flex-col">
-                    <p className="p-name">{"Hak Vichet"}</p>
+                    <p className="p-name">{"Meng Lavy"}</p>
                     <p className="p-date">{detailData.download_date}</p>
                   </div>
                 </div>
