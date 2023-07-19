@@ -1,28 +1,27 @@
 import React, { useEffect, useRef } from "react";
 import ApexCharts from "apexcharts";
 
+import { useRecoilValue } from "recoil";
+import {
+  savingChartDataAtom,
+  isFilteredBankDataState,
+  filteredSavingChartDataAtom,
+} from "./atom";
+
 const ChartComponent = () => {
+  const isFilteredBankData = useRecoilValue(isFilteredBankDataState);
+
   const chartRef = useRef(null);
+
+  const chartData = useRecoilValue(savingChartDataAtom);
+  const filteredChartData = useRecoilValue(filteredSavingChartDataAtom);
 
   useEffect(() => {
     const options = {
-      series: [
-        // {
-        //   name: "ABA",
-        //   data: [31, 40, 28, 51, 42, 109, 100],
-        // },
-        // {
-        //   name: "ACELEDA",
-        //   data: [11, 32, 45, 32, 34, 52, 41],
-        // },
-        // {
-        //   name: "SATHAPANA",
-        //   data: [11, 2, 45, 8, 34, 100, 80],
-        // },
-      ],
+      series: !isFilteredBankData ? chartData.data : filteredChartData.data,
       chart: {
         height: 350,
-        type: "area",
+        // type: "area",
       },
       dataLabels: {
         enabled: false,
@@ -31,16 +30,10 @@ const ChartComponent = () => {
         curve: "smooth",
       },
       xaxis: {
-        type: "datetime",
-        categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z",
-        ],
+        // type: "datetime",
+        categories: !isFilteredBankData
+          ? chartData.categories
+          : filteredChartData.categories,
       },
       tooltip: {
         x: {
@@ -55,9 +48,14 @@ const ChartComponent = () => {
     return () => {
       chart.destroy();
     };
-  }, []);
+  }, [isFilteredBankData, chartData, filteredChartData]);
 
-  return <div ref={chartRef} />;
+  return (
+    <div>
+      <h1>saving</h1>
+      <div ref={chartRef} />
+    </div>
+  );
 };
 
 export default ChartComponent;
