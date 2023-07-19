@@ -77,7 +77,6 @@ const CompareSavingAcc = () => {
         {/* table of content and best savings... */}
         <TableOfContent />
       </div>
-
       <Faq />
     </div>
   );
