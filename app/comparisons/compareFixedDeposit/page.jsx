@@ -10,13 +10,13 @@ import Bank from "./Bank";
 import data from "./data.json";
 import SocialLink from "../../components/SocialLink";
 import TableContentFixedDepo from "./TableContentFixedDepo";
+import PromotionOffer from "../../components/PromotionOffer";
 
 const CompareFixedDeposit = () => {
-  const tableContent = "text-gray-500 font-semibold text-base";
   return (
-    <div className="pt-36">
+    <div className="pt-20">
       {/* first section */}
-      <div className="sect1 pb-24  px-4 sm:px-4 md:px-28">
+      {/* <div className="sect1 pb-24  px-4 sm:px-4 md:px-28">
         <div className="saveSect1 flex flex-col justify-center items-center">
           <p className="text-red-600 font-semibold text-sm sm:text-sm md:text-base">
             Compare Your Saving Accounts
@@ -37,31 +37,33 @@ const CompareFixedDeposit = () => {
             </button>
           </div>
         </div>
-        {/* <BankList /> */}
-      </div>
+        <BankList />
+      </div> */}
       {/* line */}
-      <hr className="border-b-1 border-gray-100 mx-4 sm:mx-4 md:mx-28" />
+      {/* <hr className="border-b-1 border-gray-100 mx-4 sm:mx-4 md:mx-28" /> */}
       {/* second section */}
-      <div className="sect2 py-16 px-4 sm:px-4 md:px-28">
+      <div className="sect2 pt-16 px-4 sm:px-4 md:px-28">
         {/* heading */}
         <div className=" flex flex-col justify-center items-center">
           <p className="text-red-600 text-sm font-medium text-center">
-            Features
+            Fixed Deposit
           </p>
           <p className="text-gray-900 font-semibold text-3xl sm:text-3xl md:text-4xl text-center pt-4">
-            Cutting-edge features for comparisons
+            Secure Your Savings with Fixed Deposit Accounts
           </p>
           <p className="max-w-3xl text-gray-500 font-normal text-center pt-4 sm:pt-4 md:pt-5 text-lg sm:text-lg md:text-xl">
-            We provide comprehensive and up-to-date information, empowering you
-            to make informed decisions based on your unique needs and
-            preferences.
+            Our Fixed Deposit Accounts offer a reliable and risk-free investment
+            option to grow your savings. With competitive interest rates and
+            flexible tenure options, you can watch your money grow steadily over
+            time.
           </p>
         </div>
         {/* function compare fixed deposit */}
-        <div>
-          <CompareFixedDepoForm />
-          <TableContentFixedDepo />
-        </div>
+
+        <CompareFixedDepoForm />
+        <PromotionOffer />
+        <TableContentFixedDepo />
+
         {/* table of content and best savings... */}
       </div>
 

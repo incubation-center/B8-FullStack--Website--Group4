@@ -472,20 +472,21 @@ const CompareFixedDepoForm = () => {
         </div>
       </div>
       <div className="mt-20">
-        <div className="text-center">
+        {/* header */}
+        <div className="text-center flex flex-col justify-center items-center">
           <h1 className="text-[#101828] font-medium text-xl">
             Good news! We’ve found{" "}
             <span className="text-[#12B76A]">51 products</span> for you to take
             a look at.
           </h1>
-          <p className="text-[#475467] text-lg font-normal mt-5">
-            Our platform keeps you updated on the most current and exciting
-            promotions from banks and financial institutions in Cambodia.
+          <p className="text-[#475467] text-lg font-normal mt-5 max-w-[850px] mb-12">
+            Take a look and explore a wide range of options that match your
+            needs. Whether it's finding the perfect fixed deposit account,
+            investment opportunity, or financial service, our collection has
+            something for everyone. Start exploring now and discover the perfect
+            fit for your financial goals!
           </p>
         </div>
-        <Chartfixdeposits data={datachart} />
-
-        {/* data of the table term */}
         <div className="flex flex-col">
           <div className="overflow-x-auto">
             <div className="p-1.5 w-full inline-block align-middle">
@@ -549,6 +550,23 @@ const CompareFixedDepoForm = () => {
             </div>
           </div>
         </div>
+        {/* chart header */}
+        <div className=" flex flex-col justify-center items-center my-12">
+          <p className="text-gray-900 font-semibold text-3xl sm:text-3xl md:text-4xl text-center pt-4">
+            Fixed Deposit Rate Live Line Chart
+          </p>
+          <p className="max-w-3xl text-gray-500 font-normal text-center pt-4 sm:pt-4 md:pt-5 text-lg sm:text-lg md:text-xl">
+            It is a dynamic graphical representation that visually displays the
+            fluctuation of fixed deposit interest rates over time. This chart
+            provides real-time updates, allowing users to monitor the changing
+            interest rates offered by various banks and financial institutions
+            for fixed deposit accounts.
+          </p>
+        </div>
+        <Chartfixdeposits data={datachart} />
+
+        {/* data of the table term */}
+        
       </div>
     </div>
   );

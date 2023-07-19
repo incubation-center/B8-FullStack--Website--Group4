@@ -1,7 +1,7 @@
 import React from "react";
 import data from "./data";
 
-const ChooseSavAccList = () => {
+const NumListFixedDepo = () => {
   const olStyles = {
     listStyleType: "decimal", // Set the list item numbering style to decimal
     paddingLeft: "20px", // Add some left padding for indentation
@@ -9,10 +9,11 @@ const ChooseSavAccList = () => {
 
   return (
     <ol style={olStyles} className="bodyText mt-6">
-      {data.loan.loanList.map((item, index) => (
+      {data.aboutFixedDepoAcc.aboutFixedDepoAccList.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
     </ol>
   );
 };
-export default ChooseSavAccList;
+
+export default NumListFixedDepo;

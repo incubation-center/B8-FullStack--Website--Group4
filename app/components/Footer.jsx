@@ -15,12 +15,18 @@ const Footer = () => {
           </span>
         </p>
         <div className="foot-sect1-btn flex flex-col-reverse gap-y-3 text-base font-semibold sm:flex sm:flex-col-reverse sm:text-base sm:gap-y-3 md:text-base md:flex md:flex-row md:gap-x-3">
-          <button className=" text-gray-700 rounded-lg px-5 py-3 border-gray-300 border-2 hover:bg-gray-50">
+          <Link
+            href="/aboutus"
+            className=" text-gray-700 rounded-lg px-5 py-3 border-gray-300 border-2 hover:bg-gray-50 text-center"
+          >
             Learn more
-          </button>
-          <button className=" text-white rounded-lg px-5 py-3  bg-red-500 hover:bg-red-600">
+          </Link>
+          <Link
+            href="/account/signup/usersignupdetials"
+            className=" text-white rounded-lg px-5 py-3  bg-red-500 hover:bg-red-600 text-center"
+          >
             Get started
-          </button>
+          </Link>
         </div>
       </div>
       <hr className="border-b-1 border-gray-100" />
@@ -44,13 +50,22 @@ const Footer = () => {
               Comparisons
             </p>
             <div className="text-gray-500 font-semibold text-base flex flex-col ">
-              <Link href="/comparisons/compareLoans" className="hover:bg-gray-50 hover:text-gray-600">
+              <Link
+                href="/comparisons/compareLoans"
+                className="hover:bg-gray-50 hover:text-gray-600"
+              >
                 Loans
               </Link>
-              <Link href="/comparisons/compareSavingAcc" className="hover:bg-gray-50 hover:text-gray-600">
+              <Link
+                href="/comparisons/compareSavingAcc"
+                className="hover:bg-gray-50 hover:text-gray-600"
+              >
                 Saving Accounts
               </Link>
-              <Link href="/comparisons/compareFixedDeposit" className="hover:bg-gray-50 hover:text-gray-600">
+              <Link
+                href="/comparisons/compareFixedDeposit"
+                className="hover:bg-gray-50 hover:text-gray-600"
+              >
                 Fixed Deposit
               </Link>
             </div>
@@ -80,10 +95,16 @@ const Footer = () => {
               Resources
             </p>
             <div className="text-gray-500 font-semibold text-base flex flex-col">
-              <Link href="/resources/financialArticles" className="hover:bg-gray-50 hover:text-gray-600">
+              <Link
+                href="/resources/financialArticles"
+                className="hover:bg-gray-50 hover:text-gray-600"
+              >
                 Articles
               </Link>
-              <Link href="/resources/guidesTutorials" className="hover:bg-gray-50 hover:text-gray-600">
+              <Link
+                href="/resources/guidesTutorials"
+                className="hover:bg-gray-50 hover:text-gray-600"
+              >
                 Guides
               </Link>
               {/* <Link href="/" className="hover:bg-gray-50 hover:text-gray-600">
@@ -135,7 +156,10 @@ const Footer = () => {
               {/* <Link href="/" className="hover:bg-gray-50 hover:text-gray-600">
                 Cookies
               </Link> */}
-              <Link href="/settings/home" className="hover:bg-gray-50 hover:text-gray-600">
+              <Link
+                href="/settings/home"
+                className="hover:bg-gray-50 hover:text-gray-600"
+              >
                 Settings
               </Link>
               {/* <Link href="/" className="hover:bg-gray-50 hover:text-gray-600">

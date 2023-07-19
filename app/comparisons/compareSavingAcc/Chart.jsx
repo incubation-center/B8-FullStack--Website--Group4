@@ -9,15 +9,15 @@ const Chart = () => {
           Saving Line Chart
         </h1>
         <p className="text-[#667085] font-normal text-lg mt-6">
-          Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam
-          suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum quis
-          montes, sit sit. Tellus aliquam enim urna, etiam. Mauris posuere
-          vulputate arcu amet, vitae nisi, tellus tincidunt. At feugiat sapien
-          varius id. Eget quis mi enim, leo lacinia pharetra, semper. Eget in
-          volutpat mollis at volutpat lectus velit, sed auctor. Porttitor fames
-          arcu quis fusce augue enim. Quis at habitant diam at. Suscipit
-          tristique risus, at donec. In turpis vel et quam imperdiet. Ipsum
-          molestie aliquet sodales id est ac volutpat.{" "}
+          your real-time window into the ever-changing landscape of savings
+          rates. Stay ahead of the curve and make informed decisions with this
+          dynamic tool that displays live updates of interest rates from leading
+          financial institutions. With our interactive line chart, you can
+          effortlessly track the fluctuations in savings rates, empowering you
+          to identify the best opportunities to grow your savings. Whether
+          you're looking for short-term gains or long-term stability, this
+          feature ensures you have the most up-to-date information at your
+          fingertips.
         </p>
       </div>
       {/* Graph */}
