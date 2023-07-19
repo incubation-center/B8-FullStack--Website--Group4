@@ -20,7 +20,7 @@ import EstimateCompareLoans from "./EstimateCompareLoans";
 const CompareLoan = () => {
   return (
     <div className="pt-16 sm:pt-16 md:pt-20">
-      <div className="sect2 py-16 px-4 sm:px-4 md:px-28">
+      <div className="sect2 pt-16 px-4 sm:px-4 md:px-28">
         {/* heading */}
         <div className=" flex flex-col justify-center items-center">
           <p className="text-red-600 text-sm font-medium text-center">Loan</p>
@@ -42,7 +42,7 @@ const CompareLoan = () => {
             <span className="text-[#12B76A]">51 products</span> for you to take
             a look at.
           </h1>
-          <p className="text-[#475467] text-lg font-normal mt-5 max-w-[770px]">
+          <p className="text-[#475467] text-lg font-normal mt-5 max-w-[780px]">
             Take a look and explore a wide range of options that match your
             needs. Whether it's finding the perfect loan, investment
             opportunity, or financial service, our collection has something for
@@ -53,55 +53,18 @@ const CompareLoan = () => {
         {/* Saving line chart */}
         <div className="text-center mt-16 mb-12">
           <h1 className="text-[#101828] font-semibold text-3xl ">
-            Saving Line Chart
+            Loan Rate Live Line Chart
           </h1>
           <p className="text-[#667085] font-normal text-lg mt-6">
-            Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam
-            suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum
-            quis montes, sit sit. Tellus aliquam enim urna, etiam. Mauris
-            posuere vulputate arcu amet, vitae nisi, tellus tincidunt. At
-            feugiat sapien varius id. Eget quis mi enim, leo lacinia pharetra,
-            semper. Eget in volutpat mollis at volutpat lectus velit, sed
-            auctor. Porttitor fames arcu quis fusce augue enim. Quis at habitant
-            diam at. Suscipit tristique risus, at donec. In turpis vel et quam
-            imperdiet. Ipsum molestie aliquet sodales id est ac volutpat.{" "}
+            is a dynamic and interactive graphical representation of real-time
+            loan interest rates offered by various financial institutions. This
+            innovative tool provides users with up-to-date information on loan
+            rates, allowing them to make informed decisions when seeking loans
+            or financing options.
           </p>
         </div>
         <SavingLineChart />
-        {/* Exchange rate */}
-        <div className="text-center mt-16 mb-12">
-          <h1 className="text-[#101828] font-semibold text-3xl ">
-            Exchange Rate
-          </h1>
-          <p className="text-[#667085] font-normal text-lg mt-6">
-            Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam
-            suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum
-            quis montes, sit sit. Tellus aliquam enim urna, etiam. Mauris
-            posuere vulputate arcu amet, vitae nisi, tellus tincidunt. At
-            feugiat sapien varius id. Eget quis mi enim, leo lacinia pharetra,
-            semper. Eget in volutpat mollis at volutpat lectus velit, sed
-            auctor. Porttitor fames arcu quis fusce augue enim. Quis at habitant
-            diam at. Suscipit tristique risus, at donec. In turpis vel et quam
-            imperdiet. Ipsum molestie aliquet sodales id est ac volutpat.{" "}
-          </p>
-        </div>
         <ExchangeRateChart />
-        {/* estimate your saving */}
-        {/* heading */}
-        <div className=" flex flex-col justify-center items-center mt-16">
-          <p className="text-red-600 text-sm font-medium text-center">
-            Features
-          </p>
-          <p className="text-gray-900 font-semibold text-3xl sm:text-3xl md:text-4xl text-center pt-4">
-            Cutting-edge features for comparisons
-          </p>
-          <p className=" text-gray-500 font-normal text-center pt-4 sm:pt-4 md:pt-5 text-lg sm:text-lg md:text-xl">
-            We provide comprehensive and up-to-date information, empowering you
-            to make informed decisions based on your unique needs and
-            preferences.
-          </p>
-        </div>
-        <EstimateCompareLoans />
         <TableContentLoans />
       </div>
 
