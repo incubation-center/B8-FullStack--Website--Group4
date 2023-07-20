@@ -66,7 +66,7 @@ const CompareLoan = () => {
         </div>
         <SavingLineChart />
         <ExchangeRateChart />
-        <PromotionOffer />
+        {/* <PromotionOffer /> */}
         <TableContentLoans />
       </div>
 

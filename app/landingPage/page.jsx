@@ -5,6 +5,7 @@ import Faq from "../components/Faq";
 import Link from "next/link";
 import { useSetRecoilState } from "recoil";
 import { chatBox } from "../api/atoms";
+import PromotionOffer from "../components/PromotionOffer";
 
 const promoData = [
   {
@@ -362,64 +363,7 @@ const LandingPage = () => {
       </section>
       {/* frequently asked questions */}
       <Faq />
-      <section className="sect6 flex flex-col gap-16 py-16 px-4 sm:px-4 md:px-28">
-        <div className="sect6-div1 flex flex-col sm:flex-col sm:items-start md:flex  md:flex-row md:justify-between md:items-start pt-2.5 gap-x-[400px]">
-          <div className="">
-            <p className="text-red-600 text-sm sm:text-sm md:text-base font-semibold mb-2 sm:mb-2 md:mb-3">
-              Our Promotions
-            </p>
-            <p className="text-gray-900 font-semibold text-3xl sm:text-3xl md:text-4xl mb-5">
-              Lasted promotions
-            </p>
-            <p className="text-gray-600 text-lg sm:text-lg md:text-xl font-normal">
-              Our platform keeps you updated on the most current and exciting
-              promotions from banks and financial institutions in Cambodia.
-            </p>
-          </div>
-          {/* view more button */}
-          <div className=" flex-col flex-grow-0 flex-shrink-0 items-center hidden sm:hidden md:block">
-            <Link
-              href="/promotions"
-              className="text-white font-semibold text-base py-3 px-5 bg-red-500 rounded-lg hover:bg-red-600"
-            >
-              View more
-            </Link>
-          </div>
-        </div>
-        <div className="sect6-div2 flex flex-col sm:flex-col md:flex-row justify-around gap-8 px-8 ">
-          {promoData.map((data, index) => (
-            <div key={index} className="promo1 flex flex-col basis-full">
-              <Image
-                src={data.img}
-                alt="seagame-banner"
-                width={384}
-                height={240}
-                className="w-auto h-auto mb-6"
-              />
-              <div className="flex flex-col">
-                <p className="bankName">{data.bankName}</p>
-                <div className="flex flex-row items-start justify-between">
-                  <p className="promotionName">{data.promoName}</p>
-                  <button>
-                    <Image
-                      src="/images/go-icon.png"
-                      alt="go icon"
-                      width={24}
-                      height={24}
-                    />
-                  </button>
-                </div>
-                <p className="promotionContent">{data.promoContent}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center items-center sm:block md:hidden">
-          <button className="text-white font-semibold text-base py-3 px-[180px] sm:px-[180px] md:px-5 bg-red-500 rounded-lg hover:bg-red-600">
-            View more
-          </button>
-        </div>
-      </section>
+      {/* <PromotionOffer /> */}
       <hr className="border-b-1 border-gray-100 mx-4 sm:mx-4 md:mx-28" />
     </div>
   );

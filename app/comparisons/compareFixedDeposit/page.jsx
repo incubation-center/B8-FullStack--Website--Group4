@@ -61,7 +61,7 @@ const CompareFixedDeposit = () => {
         {/* function compare fixed deposit */}
 
         <CompareFixedDepoForm />
-        <PromotionOffer />
+        {/* <PromotionOffer /> */}
         <TableContentFixedDepo />
 
         {/* table of content and best savings... */}
