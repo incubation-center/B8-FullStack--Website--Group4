@@ -71,7 +71,7 @@ const CompareSavingAcc = () => {
         {/* estimate saving form */}
         {/* <EstimateSaving /> */}
         {/* <FeatureOfferBank /> */}
-        <PromotionOffer />
+        {/* <PromotionOffer /> */}
         {/* <DisplayContent /> */}
 
         {/* table of content and best savings... */}
