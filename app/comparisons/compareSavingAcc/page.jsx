@@ -16,7 +16,6 @@ import ExchangeRate from "./ExchangeRate";
 import EstimateSaving from "./EstimateSaving";
 import ChartComponent from "./ChartBar";
 import ChartFilter from "./ChartFilter";
-import PromotionOffer from "@/app/components/PromotionOffer";
 import Image from "next/image";
 import FeatureOfferBank from "./FeatureOfferBank";
 // import Selection from "@/app/components/Selection";

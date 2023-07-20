@@ -6,7 +6,7 @@ import { detailAtom } from "../datailAtom";
 import { FiCopy } from "react-icons/fi";
 import { BsFacebook, BsTwitter, BsInstagram } from "react-icons/bs";
 import { RiSendPlaneLine } from "react-icons/ri";
-import PromotionOffer from "@/app/components/PromotionOffer";
+
 
 const PromoDetails = ({ params }) => {
   const [detailData, setDetailData] = useRecoilState(detailAtom);
@@ -136,7 +136,7 @@ const PromoDetails = ({ params }) => {
               </div>
             </div>
           </div>
-          <PromotionOffer />
+          {/* <PromotionOffer /> */}
         </div>
       </div>
     </div>

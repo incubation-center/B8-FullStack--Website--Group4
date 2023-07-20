@@ -10,7 +10,7 @@ import Bank from "./Bank";
 import data from "./data.json";
 import SocialLink from "../../components/SocialLink";
 import TableContentFixedDepo from "./TableContentFixedDepo";
-import PromotionOffer from "../../components/PromotionOffer";
+
 
 const CompareFixedDeposit = () => {
   return (

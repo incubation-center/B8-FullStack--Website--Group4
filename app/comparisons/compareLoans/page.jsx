@@ -14,7 +14,7 @@ import TableContentLoans from "./TableContentLoans";
 import SavingLineChart from "./SavingLineChart";
 import ExchangeRateChart from "./ExchangeRateChart";
 import EstimateCompareLoans from "./EstimateCompareLoans";
-import PromotionOffer from "@/app/components/PromotionOffer";
+
 // import CompareSavingAccForm from "./CompareSaveAccForm";
 // import DisplayContent from "./DisplayContent";
 

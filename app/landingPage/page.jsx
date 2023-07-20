@@ -5,7 +5,6 @@ import Faq from "../components/Faq";
 import Link from "next/link";
 import { useSetRecoilState } from "recoil";
 import { chatBox } from "../api/atoms";
-import PromotionOffer from "../components/PromotionOffer";
 
 const promoData = [
   {
