@@ -3,6 +3,8 @@ import React from "react";
 import Image from "next/image";
 import Faq from "../components/Faq";
 import Link from "next/link";
+import { useSetRecoilState } from "recoil";
+import { chatBox } from "../api/atoms";
 
 const promoData = [
   {
@@ -29,13 +31,18 @@ const promoData = [
 ];
 
 const LandingPage = () => {
+  const setShowChatBox = useSetRecoilState(chatBox);
+
+  const handleChatBoxClick = () => {
+    setShowChatBox(true);
+  }
   return (
     <div>
       <section className="sect1 py-24  px-4 sm:px-4 md:px-28 mt-20">
         <div className="sect1-div1 flex flex-col justify-center items-center">
-          <Link
+          <button
             // will change later if chatgpt ready
-            href="/landingPage"
+            onClick={handleChatBoxClick}
             className="flex justify-center items-center bg-red-50 font-medium text-sm gap-3 py-1.5 pl-1 pr-2.5 rounded-2xl "
           >
             <p className="text-white bg-red-500 px-2.5 py-0.5 rounded-2xl shrink-0">
@@ -52,7 +59,7 @@ const LandingPage = () => {
                 w-auto h-auto"
               />
             </div>
-          </Link>
+          </button>
           <p className="max-w-5xl text-center text-gray-900 font-semibold text-4xl mt-4 sm:mt-4 sm:font-semibold md:font-bold  md:mt-5">
             Unlock Your Financial Potential with ProAdvisor's Innovative
             Solutions

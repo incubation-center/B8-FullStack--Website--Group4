@@ -4,12 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SlArrowRight } from "react-icons/sl";
 import Chat from "./Chat";
 import SignIn from "./SignIn";
-import { useRecoilValue } from "recoil";
-import {chatState} from "../api/atoms";
+import { useRecoilValue, useRecoilState } from "recoil";
+import {chatState, chatBox} from "../api/atoms";
 
 
 const ChatGPT = () => {
-  const [isShow, setIsShow] = React.useState(false);
+  // const  = React.useState(false);
+  const [isShow, setIsShow] = useRecoilState(chatBox);
   const isLogined = useRecoilValue(chatState);
 
   return (
@@ -22,7 +23,7 @@ const ChatGPT = () => {
 
         <motion.div
           key="button"
-          onClick={() => setIsShow(!isShow) && handleClick()}
+          onClick={() => setIsShow(!isShow)}
           layout
           transition={{ duration: 0.3 }}
           className="bg-red-500 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center rounded-full hover:bg-red-400 transition-all duration-300 ease-in-out"
