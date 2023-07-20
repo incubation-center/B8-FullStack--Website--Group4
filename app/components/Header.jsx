@@ -152,7 +152,7 @@ function NavListMenu() {
               <div className="flex flex-col gap-3">
                 <div>
                   <Image
-                    src="/images/compare-pic.png"
+                    src="/compare-pic.png"
                     alt="compare"
                     width={400}
                     height={50}
