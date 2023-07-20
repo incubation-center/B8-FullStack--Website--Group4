@@ -4,10 +4,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SlArrowRight } from "react-icons/sl";
 import Chat from "./Chat";
 import SignIn from "./SignIn";
+import { useRecoilValue } from "recoil";
+import {chatState} from "../api/atoms";
+
 
 const ChatGPT = () => {
   const [isShow, setIsShow] = React.useState(false);
-  const [user, setUser] = React.useState(true);
+  const isLogined = useRecoilValue(chatState);
 
   return (
     <div className="fixed sm:bottom-5 sm:right-5 bottom-2 right-2 z-[999] ">
@@ -48,7 +51,7 @@ const ChatGPT = () => {
               className="absolute bottom-full right-0 mb-4 sm:h-[550px] bg-white rounded-lg shadow-xl shadow-gray-400 overflow-hidden"
             >
               {/* chat */}
-              {user ? <Chat /> : <SignIn />}
+              {isLogined ? <Chat /> : <SignIn />}
             </motion.div>
           )}
         </AnimatePresence>

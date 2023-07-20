@@ -2,8 +2,16 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 import Image from "next/image";
+import { useSetRecoilState } from "recoil";
+import { chatState } from "../api/atoms";
 
 export default function SignIn() {
+  const setChatState = useSetRecoilState(chatState);
+
+  const handleLoginClick = () => {
+    setChatState(true);
+  };
+
   return (
     <div className="flex w-[500px] h-[700px] items-center justify-center">
       <div className="flex flex-col m-3 items-center justify-center">
@@ -20,12 +28,17 @@ export default function SignIn() {
             Please enter your details.
           </p>
         </div>
-        <div className="signup-btn text-[18px] font-bold">
+        <button
+          onClick={handleLoginClick}
+          className="signup-btn text-[18px] font-bold"
+        >
           <Link href="">Sign in</Link>
-        </div>
+        </button>
         <div className="flex flex-row w-full justify-center gap-2 items-center rounded-lg p-2 border-2 border-gray-100 mt-3 hover:border-red-500 bg-white">
           <FcGoogle className="w-[25px] h-auto" />
-          <p className="text-black text-[18px] font-bold">Login with Google</p>
+          <button onClick={handleLoginClick} className="text-black text-[18px] font-bold">
+            Login with Google
+          </button>
         </div>
 
         <div className="flex justify-center gap-2 mt-5 text-gray-600 cursor-pointer">

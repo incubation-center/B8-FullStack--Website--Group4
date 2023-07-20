@@ -14,7 +14,7 @@ export async function fetchAllBankDataOld() {
 
 export async function fetchAllBankData() {
   try {
-    const response = await fetch("http://35.240.154.65:8080/savings");
+    const response = await fetch("http://35.240.154.65:8080/savings?ccy=KHR");
 
     const data = await response.json();
 
