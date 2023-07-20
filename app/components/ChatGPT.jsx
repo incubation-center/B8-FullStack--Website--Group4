@@ -7,7 +7,7 @@ import SignIn from "./SignIn";
 
 const ChatGPT = () => {
   const [isShow, setIsShow] = React.useState(false);
-  const [user, setUser] = React.useState(true);
+  const [user, setUser] = React.useState(false);
 
   return (
     <div className="fixed sm:bottom-5 sm:right-5 bottom-2 right-2 z-[999] ">
