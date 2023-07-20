@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function fetchAllBankDataOld() {
   try {
-    const response = await fetch("http://35.240.154.65:8080/savings/all");
+    const response = await fetch("http://34.143.180.195:8080/savings/all");
 
     const data = await response.json();
     return data.data.savings;
@@ -14,7 +14,7 @@ export async function fetchAllBankDataOld() {
 
 export async function fetchAllBankData() {
   try {
-    const response = await fetch("http://35.240.154.65:8080/savings?ccy=KHR");
+    const response = await fetch("http://34.143.180.195:8080/savings?ccy=KHR");
 
     const data = await response.json();
 
@@ -39,7 +39,7 @@ export async function fetchAllBankData() {
 
 export async function fetchAllSavingLineChart() {
   try {
-    const response = await fetch("http://35.240.154.65:8080/savings/hist");
+    const response = await fetch("http://34.143.180.195:8080/savings/hist");
 
     const data = await response.json();
 
@@ -73,7 +73,7 @@ export async function fetchAllSavingLineChart() {
 
 export async function fetchAllSavingLineChartByParams(banks, currency) {
   try {
-    const url = "http://35.240.154.65:8080/savings/hist?";
+    const url = "http://34.143.180.195:8080/savings/hist?";
 
     let banksParam = "";
     let currencyParam = currency ? `ccy=${currency}` : "";
@@ -118,7 +118,7 @@ export async function fetchAllSavingLineChartByParams(banks, currency) {
 
 export async function fetchBankDataByParams(banks, currency) {
   try {
-    let url = `http://35.240.154.65:8080/savings?`;
+    let url = `http://34.143.180.195:8080/savings?`;
 
     let banksParam = "";
     let currencyParam = currency ? `ccy=${currency}` : "";
