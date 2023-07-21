@@ -66,7 +66,6 @@ const CompareFixedDeposit = () => {
 
         {/* table of content and best savings... */}
       </div>
-
       {/* frequently ask questions */}
       <Faq />
     </div>
