@@ -1,22 +1,10 @@
 "use client";
-import BankList from "@/app/components/BankList";
 import Faq from "@/app/components/Faq";
-import Link from "next/link";
-import data from "./data.json"
 import React from "react";
 import CompareLoansForm from "./CompareLoansForm";
-import ShowContent from "./ShowContent";
-import BankInfoLoans from "./BankInfoLoans";
-import ChooseSavAccList from "./ChooseSavAccListLoans";
-import KnowSaveAcc from "./KnowSaveAcc";
-import SocialLink from "@/app/components/SocialLink";
 import TableContentLoans from "./TableContentLoans";
 import SavingLineChart from "./SavingLineChart";
 import ExchangeRateChart from "./ExchangeRateChart";
-import EstimateCompareLoans from "./EstimateCompareLoans";
-
-// import CompareSavingAccForm from "./CompareSaveAccForm";
-// import DisplayContent from "./DisplayContent";
 
 const CompareLoan = () => {
   return (
