@@ -1,6 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Settings from "../../components/Setting";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Header from "@/app/components/Header";
 
 const page = () => {
   const [isChecked, setIsChecked] = useState(false);

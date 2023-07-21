@@ -397,7 +397,7 @@ const CompareFixedDepoForm = () => {
                                   selected ? "font-medium" : "font-normal"
                                 }`}
                               >
-                                {term.name}
+                                {term.name} 
                               </span>
                               {selected ? (
                                 <span
@@ -509,7 +509,8 @@ const CompareFixedDepoForm = () => {
                             scope="col"
                             className="px-6 py-3 text-gray-900 font-semibold text-left uppercase "
                           >
-                            Term : {term}
+                            Term:{term}
+                            <br></br> Months
                           </th>
                         ))}
                       </tr>
