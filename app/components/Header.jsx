@@ -74,7 +74,13 @@ function NavListMenu() {
       <a href={path} key={key}>
         <MenuItem className="p-4">
           <div className="flex items-start">
-            <Image alt="icons" src={src} width={24} height={24} />
+            <Image
+              alt="icons"
+              src={src}
+              width={24}
+              height={24}
+              className="w-auto h-auto"
+            />
             <div className="text-left ml-2">
               {/* modify vea dak <a> or <Link /> based on you */}
               <h1 className="text-left text-gray-900 font-semibold text-lg">
@@ -94,7 +100,13 @@ function NavListMenu() {
       <a href={path} key={key}>
         <MenuItem className="p-4">
           <div className="flex items-start">
-            <Image alt="icons" src={src} width={24} height={24} />
+            <Image
+              alt="icons"
+              src={src}
+              width={24}
+              height={24}
+              className="w-auto h-auto"
+            />
             <div className="text-left ml-2">
               {/* modify vea dak <a> or <Link /> based on you */}
               <h1 className="text-left text-gray-900 font-semibold text-lg">
@@ -156,6 +168,7 @@ function NavListMenu() {
                     alt="compare"
                     width={400}
                     height={50}
+                    className="w-auto h-auto"
                   />
                 </div>
                 <div className="flex items-center gap-2">
@@ -230,6 +243,7 @@ function NavListMenu() {
                     alt="compare"
                     width={400}
                     height={50}
+                    className="w-auto h-auto"
                   />
                 </div>
                 <div className="flex items-center gap-2">
@@ -276,7 +290,13 @@ function NavListMenu() {
       <div className="block md:hidden">
         <Collapse open={isMobileMenuOpen} className="flex flex-col gap-3">
           {renderItems}
-          <Image src="/compare-pic.png" alt="compare" width={600} height={40} />
+          <Image
+            src="/compare-pic.png"
+            alt="compare"
+            width={600}
+            height={40}
+            className="w-auto h-auto"
+          />
 
           <div className="flex items-center gap-2">
             <svg
@@ -314,6 +334,7 @@ function NavListMenu() {
             alt="compare"
             width={600}
             height={40}
+            className="w-auto h-auto"
           />
           <div className="flex items-center gap-2">
             <h1 className="text-left text-gray-900 font-semibold text-lg">
@@ -454,6 +475,7 @@ const Header = () => {
               alt="Logo"
               width={120}
               height={40}
+              className="w-auto h-auto"
             />
           </Typography>
 

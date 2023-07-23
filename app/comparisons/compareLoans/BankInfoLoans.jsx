@@ -1,4 +1,4 @@
-// account infor at Compare Saving Account page
+"use client";
 import React, { useState } from "react";
 import Image from "next/image";
 import ImageDisplay from "@/app/components/ImageDisplay";

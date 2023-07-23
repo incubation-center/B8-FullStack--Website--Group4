@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const list = [
@@ -9,14 +10,16 @@ const list = [
 ];
 
 const WhoGetSavAccList = () => {
-    const ulStyles = {
-      listStyleType: "disc", // Set the list item numbering style to decimal
-      paddingLeft: "20px", // Add some left padding for indentation
-    };
+  const ulStyles = {
+    listStyleType: "disc", // Set the list item numbering style to decimal
+    paddingLeft: "20px", // Add some left padding for indentation
+  };
   return (
     <ul style={ulStyles} className="bodyText mt-6">
       {list.map((item, index) => (
-        <li key={index} className="mt-4">{item}</li>
+        <li key={index} className="mt-4">
+          {item}
+        </li>
       ))}
     </ul>
   );

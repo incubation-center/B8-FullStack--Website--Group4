@@ -9,7 +9,7 @@ import ChartComponent from "./ChartBar";
 import ChartFilter from "./ChartFilter";
 import FeatureOfferBank from "./FeatureOfferBank";
 
-const CompareSavingAcc = () => {
+const Page = () => {
   return (
     <div className="pt-16 sm:pt-16 md:pt-20 ">
       <div className="sect2 py-16 px-4 sm:px-4 md:px-28">
@@ -45,4 +45,4 @@ const CompareSavingAcc = () => {
   );
 };
 
-export default CompareSavingAcc;
+export default Page;

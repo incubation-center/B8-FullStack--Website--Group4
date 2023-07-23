@@ -1,5 +1,6 @@
+"use client";
 import axios from "axios";
-
+import React from "react";
 export async function fetchAllBankDataOld() {
   try {
     const response = await fetch("http://34.143.180.195:8080/savings/all");

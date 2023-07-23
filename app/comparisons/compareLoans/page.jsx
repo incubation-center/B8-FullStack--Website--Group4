@@ -6,7 +6,7 @@ import TableContentLoans from "./TableContentLoans";
 import SavingLineChart from "./SavingLineChart";
 import ExchangeRateChart from "./ExchangeRateChart";
 
-const CompareLoan = () => {
+const Page = () => {
   return (
     <div className="pt-16 sm:pt-16 md:pt-20">
       <div className="sect2 pt-16 px-4 sm:px-4 md:px-28">
@@ -64,4 +64,4 @@ const CompareLoan = () => {
   );
 };
 
-export default CompareLoan;
+export default Page;

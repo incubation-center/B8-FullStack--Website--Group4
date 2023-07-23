@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Card, Typography } from "@material-tailwind/react";
 import ReactPaginate from "react-paginate";
@@ -397,7 +398,7 @@ const CompareFixedDepoForm = () => {
                                   selected ? "font-medium" : "font-normal"
                                 }`}
                               >
-                                {term.name} 
+                                {term.name}
                               </span>
                               {selected ? (
                                 <span
@@ -567,7 +568,6 @@ const CompareFixedDepoForm = () => {
         <Chartfixdeposits data={datachart} />
 
         {/* data of the table term */}
-        
       </div>
     </div>
   );

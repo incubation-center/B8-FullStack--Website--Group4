@@ -4,8 +4,7 @@ import Faq from "../../components/Faq";
 import CompareFixedDepoForm from "./CompareFixedDepoForm";
 import TableContentFixedDepo from "./TableContentFixedDepo";
 
-
-const CompareFixedDeposit = () => {
+const Page = () => {
   return (
     <div className="pt-20">
       <div className="sect2 pt-16 px-4 sm:px-4 md:px-28">
@@ -35,4 +34,4 @@ const CompareFixedDeposit = () => {
   );
 };
 
-export default CompareFixedDeposit;
+export default Page;
