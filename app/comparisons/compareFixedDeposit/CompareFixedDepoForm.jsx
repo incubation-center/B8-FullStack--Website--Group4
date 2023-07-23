@@ -1,21 +1,18 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Card, Typography } from "@material-tailwind/react";
-import ReactPaginate from "react-paginate";
-import { MultiSelect } from "react-multi-select-component";
+
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 import {
   fetchAllBanks,
-  getAlldepositsBybank,
+
   getAlldepositsDefualtLineChart,
   getAlldepositsdefualt,
   getAllfixeddeposithistory,
   getAllfixeddepositlist,
 } from "../../api/fixeddeposits/getAlldeposits";
-import ChartFilter from "../compareSavingAcc/ChartFilter";
-import ChartComponent from "../compareSavingAcc/ChartBar";
+
 import Chartfixdeposits from "./Chartfixdeposits";
 
 const term = [
