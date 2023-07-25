@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import ApexCharts from "apexcharts";
+import dynamic from "next/dynamic";
+
+const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 const ChartFilter = () => {
   const chartRef = useRef(null);

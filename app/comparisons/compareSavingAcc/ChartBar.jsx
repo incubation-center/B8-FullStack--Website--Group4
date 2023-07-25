@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
-import ApexCharts from "apexcharts";
+import dynamic from "next/dynamic";
+
+const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
 import { useRecoilValue } from "recoil";
 import {

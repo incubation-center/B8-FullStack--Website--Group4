@@ -1,55 +1,48 @@
-import { useState, useEffect, useRef } from "react";
-import ApexCharts from "apexcharts";
-import { getAllfixeddepositlist } from "../../api/fixeddeposits/getAlldeposits";
+import React, { Component } from "react";
+// import Chart from "react-apexcharts";
+import dynamic from "next/dynamic";
 
-const Chartfixdeposits = ({ data }) => {
-  const chartRef = useRef(null);
-  useEffect(() => {
-    const chartData = Object.keys(data).map((bank) => ({
-      name: bank,
-      data: Object.values(data[bank]).map((rate) => rate["2023-7-17"]),
-    }));
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-    const options = {
-      series: chartData,
-      chart: {
-        height: 350,
-        type: "area",
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: "smooth",
-      },
-      xaxis: {
-        type: "datetime",
-        categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z",
-        ],
-      },
-      tooltip: {
-        x: {
-          format: "dd/MM/yy HH:mm",
+class Chartfixdeposits extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      options: {
+        chart: {
+          id: "basic-bar"
         },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        }
       },
+      series: [
+        {
+          name: "series-1",
+          data: [30, 40, 45, 50, 49, 60, 70, 91]
+        }
+      ]
     };
+  }
 
-    const chart = new ApexCharts(chartRef.current, options);
-    chart.render();
+  render() {
+    return (
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+          <Chart
+            options={this.state.options}
+            series={this.state.series}
+            type="line"
+            width="500"
+          />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
-    return () => {
-      chart.destroy();
-    };
-  }, [data]);
-
-  return <div ref={chartRef} />;
-};
 
 export default Chartfixdeposits;
