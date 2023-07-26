@@ -9,75 +9,75 @@ const ChartFilter = () => {
   const chartRef = useRef(null);
   let chart = null;
 
-  useEffect(() => {
-    const seriesData = [
-      {
-        name: "ABA",
-        data: [31, 40, 28, 51, 42, 109, 100],
-      },
-      {
-        name: "WING",
-        data: [11, 32, 45, 32, 34, 52, 41],
-      },
-      {
-        name: "PRINCE",
-        data: [11, 32, 80, 32, 34, 29, 41],
-      },
-      {
-        name: "ACELEDA",
-        data: [33, 32, 45, 32, 44, 52, 41],
-      },
-      {
-        name: "STABANA",
-        data: [0, 22, 45, 33, 34, 52, 41],
-      },
-      {
-        name: "LYHOUR",
-        data: [100, 10, 88, 32, 34, 99, 41],
-      },
-    ];
+  // useEffect(() => {
+  //   const seriesData = [
+  //     {
+  //       name: "ABA",
+  //       data: [31, 40, 28, 51, 42, 109, 100],
+  //     },
+  //     {
+  //       name: "WING",
+  //       data: [11, 32, 45, 32, 34, 52, 41],
+  //     },
+  //     {
+  //       name: "PRINCE",
+  //       data: [11, 32, 80, 32, 34, 29, 41],
+  //     },
+  //     {
+  //       name: "ACELEDA",
+  //       data: [33, 32, 45, 32, 44, 52, 41],
+  //     },
+  //     {
+  //       name: "STABANA",
+  //       data: [0, 22, 45, 33, 34, 52, 41],
+  //     },
+  //     {
+  //       name: "LYHOUR",
+  //       data: [100, 10, 88, 32, 34, 99, 41],
+  //     },
+  //   ];
 
-    const chartOptions = {
-      series: seriesData,
-      chart: {
-        height: 350,
-        // type: "area",
-        zoom: {
-          enabled: false,
-        },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: "smooth",
-      },
-      xaxis: {
-        type: "datetime",
-        categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z",
-        ],
-      },
-      tooltip: {
-        x: {
-          format: "dd/MM/yy HH:mm",
-        },
-      },
-    };
+  //   const chartOptions = {
+  //     series: seriesData,
+  //     chart: {
+  //       height: 350,
+  //       // type: "area",
+  //       zoom: {
+  //         enabled: false,
+  //       },
+  //     },
+  //     dataLabels: {
+  //       enabled: false,
+  //     },
+  //     stroke: {
+  //       curve: "smooth",
+  //     },
+  //     xaxis: {
+  //       type: "datetime",
+  //       categories: [
+  //         "2018-09-19T00:00:00.000Z",
+  //         "2018-09-19T01:30:00.000Z",
+  //         "2018-09-19T02:30:00.000Z",
+  //         "2018-09-19T03:30:00.000Z",
+  //         "2018-09-19T04:30:00.000Z",
+  //         "2018-09-19T05:30:00.000Z",
+  //         "2018-09-19T06:30:00.000Z",
+  //       ],
+  //     },
+  //     tooltip: {
+  //       x: {
+  //         format: "dd/MM/yy HH:mm",
+  //       },
+  //     },
+  //   };
 
-    chart = new ApexCharts(chartRef.current, chartOptions);
-    chart.render();
+  //   chart = new ApexCharts(chartRef.current, chartOptions);
+  //   chart.render();
 
-    return () => {
-      chart.destroy();
-    };
-  }, []);
+  //   return () => {
+  //     chart.destroy();
+  //   };
+  // }, []);
 
   //   const handleZoomIn = () => {
   //     chart.zoomIn();
@@ -112,7 +112,7 @@ const ChartFilter = () => {
           return;
       }
 
-      chart.updateOptions({
+      ApexCharts.updateOptions({
         xaxis: {
           categories: categories.slice(newMinIndex, newMaxIndex + 1),
         },

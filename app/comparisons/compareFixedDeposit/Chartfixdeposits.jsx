@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Chart from "react-apexcharts";
 import dynamic from "next/dynamic";
 
 const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
@@ -7,42 +6,70 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 class Chartfixdeposits extends Component {
   constructor(props) {
     super(props);
-
+    this.chartRef = React.createRef();
     this.state = {
       options: {
         chart: {
-          id: "basic-bar"
+          height: 350,
+          type: "area",
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
+          type: "datetime",
+          categories: [
+            "2018-09-19T00:00:00.000Z",
+            "2018-09-19T01:30:00.000Z",
+            "2018-09-19T02:30:00.000Z",
+            "2018-09-19T03:30:00.000Z",
+            "2018-09-19T04:30:00.000Z",
+            "2018-09-19T05:30:00.000Z",
+            "2018-09-19T06:30:00.000Z",
+          ],
+        },
+        tooltip: {
+          x: {
+            format: "dd/MM/yy HH:mm",
+          },
+        },
       },
-      series: [
-        {
-          name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 91]
-        }
-      ]
+      series: [],
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.data !== this.props.data) {
+      this.updateChart(this.props.data);
+    }
+  }
+
+  updateChart(data) {
+    const chartData = Object.keys(data).map((bank) => ({
+      name: bank,
+      data: Object.values(data[bank]).map((rate) => rate["2023-7-17"]),
+    }));
+
+    this.setState({
+      series: chartData,
+    });
   }
 
   render() {
     return (
-      <div className="app">
-        <div className="row">
-          <div className="mixed-chart">
-          <Chart
-            options={this.state.options}
-            series={this.state.series}
-            type="line"
-            width="500"
-          />
-          </div>
-        </div>
-      </div>
+      <Chart
+        key={JSON.stringify(this.state.series)} // Use a unique key to force re-mount when the data changes
+        options={this.state.options}
+        series={this.state.series}
+        type="area"
+        height={350}
+        ref={this.chartRef}
+      />
     );
   }
 }
-
 
 export default Chartfixdeposits;
