@@ -1,12 +1,42 @@
-"use client";
-import React, { useEffect, useRef } from "react";
-import ApexCharts from "apexcharts";
+import React, { Component } from "react";
+import dynamic from "next/dynamic";
 
-const SavingLineChart = () => {
-  const chartRef = useRef(null);
+const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-  useEffect(() => {
-    const options = {
+class SavingLineChart extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      options: {
+        chart: {
+          height: 350,
+          type: "area",
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        stroke: {
+          curve: "smooth",
+        },
+        xaxis: {
+          type: "datetime",
+          categories: [
+            "2018-09-19T00:00:00.000Z",
+            "2018-09-19T01:30:00.000Z",
+            "2018-09-19T02:30:00.000Z",
+            "2018-09-19T03:30:00.000Z",
+            "2018-09-19T04:30:00.000Z",
+            "2018-09-19T05:30:00.000Z",
+            "2018-09-19T06:30:00.000Z",
+          ],
+        },
+        tooltip: {
+          x: {
+            format: "dd/MM/yy HH:mm",
+          },
+        },
+      },
       series: [
         {
           name: "ABA",
@@ -21,44 +51,25 @@ const SavingLineChart = () => {
           data: [11, 2, 45, 8, 34, 100, 80],
         },
       ],
-      chart: {
-        height: 350,
-        type: "area",
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: "smooth",
-      },
-      xaxis: {
-        type: "datetime",
-        categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z",
-        ],
-      },
-      tooltip: {
-        x: {
-          format: "dd/MM/yy HH:mm",
-        },
-      },
     };
+  }
 
-    const chart = new ApexCharts(chartRef.current, options);
-    chart.render();
-
-    return () => {
-      chart.destroy();
-    };
-  }, []);
-
-  return <div className="mb-12" ref={chartRef} />;
-};
+  render() {
+    return (
+      <div className="app">
+        <div className="row">
+          <div className="mixed-chart">
+            <Chart
+              options={this.state.options}
+              series={this.state.series}
+              type="line"
+              height={350}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 export default SavingLineChart;

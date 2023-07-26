@@ -30,7 +30,10 @@ const mark = (
     </defs>
   </svg>
 );
-
+const handleButtonClick = (e) => {
+  e.preventDefault();
+  alert("This section we are in progress !!!");
+};
 const CompareLoansForm = () => {
   return (
     <div>
@@ -114,6 +117,7 @@ const CompareLoansForm = () => {
         {/* update result */}
         <div className=" flex md:justify-end items-center mt-8  ">
           <button
+            onClick={handleButtonClick}
             type="submit"
             className="redButton w-full sm:w-full md:max-w-[155px] font-semibold "
           >

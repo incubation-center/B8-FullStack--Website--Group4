@@ -53,7 +53,7 @@ const Page = () => {
           </p>
         </div>
         <SavingLineChart />
-        <ExchangeRateChart />
+        {/* <ExchangeRateChart /> */}
         {/* <PromotionOffer /> */}
         <TableContentLoans />
       </div>

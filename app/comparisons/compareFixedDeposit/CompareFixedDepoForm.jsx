@@ -6,7 +6,6 @@ import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 import {
   fetchAllBanks,
-
   getAlldepositsDefualtLineChart,
   getAlldepositsdefualt,
   getAllfixeddeposithistory,
@@ -184,7 +183,7 @@ const CompareFixedDepoForm = () => {
   return (
     <div>
       <div className="p-10 bg-gray-200 rounded-md mt-10">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2  gap-6 ">
           <div className="flex flex-col gap-3">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
@@ -277,7 +276,7 @@ const CompareFixedDepoForm = () => {
               </div>
             </Combobox>
           </div>
-          <div className="flex flex-col gap-3">
+          {/* <div className="flex flex-col gap-3">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
                 Select RateAt
@@ -316,7 +315,7 @@ const CompareFixedDepoForm = () => {
               <option value="Monthly">Monthly</option>
               <option value="Quarterly">Quarterly</option>
             </select>
-          </div>
+          </div> */}
           <div className="flex flex-col gap-3">
             <div className="flex flex-row justify-between ">
               <label for="value" className="labelStyle">
@@ -419,7 +418,7 @@ const CompareFixedDepoForm = () => {
               </div>
             </Combobox>
           </div>
-          <div className="flex flex-col gap-3">
+          {/* <div className="flex flex-col gap-3">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
                 Select currency
@@ -457,7 +456,7 @@ const CompareFixedDepoForm = () => {
               <option value="KHR">KHR</option>
               <option value="USD">USD</option>
             </select>
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-end mt-5 ">
           <button

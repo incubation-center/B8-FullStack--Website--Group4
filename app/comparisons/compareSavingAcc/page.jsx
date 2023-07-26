@@ -8,8 +8,14 @@ import Chart from "./Chart";
 import ChartComponent from "./ChartBar";
 import ChartFilter from "./ChartFilter";
 import FeatureOfferBank from "./FeatureOfferBank";
+import { useRecoilValue } from "recoil";
+import { savingChartDataAtom,isFilteredBankDataState,filteredSavingChartDataAtom} from "./atom";
 
-const Page = () => {
+const CompareSavingAcc = () => {
+  const savingChartData = useRecoilValue(savingChartDataAtom);
+  const isFilteredBankData = useRecoilValue(isFilteredBankDataState);
+  const filteredSavingChartData = useRecoilValue(filteredSavingChartDataAtom);
+  
   return (
     <div className="pt-16 sm:pt-16 md:pt-20 ">
       <div className="sect2 py-16 px-4 sm:px-4 md:px-28">
@@ -36,8 +42,13 @@ const Page = () => {
         {/* fetch banks data */}
         <FeatureOfferBank />
         <Chart />
-        <ChartComponent />
-        <ChartFilter />
+        <ChartComponent
+          chartData={
+            !isFilteredBankData ? savingChartData : filteredSavingChartData
+          }
+          isFilteredBankData={isFilteredBankData}
+        />
+        {/* <ChartFilter /> */}
         <TableOfContent />
       </div>
       <Faq />
@@ -45,4 +56,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default CompareSavingAcc;
