@@ -28,20 +28,20 @@ import ChatGPT from "app/components/ChatGPT";
 
 const Comparisons = [
   {
-    src: "/images/compare-loans.png",
+    src: "/compare-loans.png",
     title: "Compare Loans",
     description: "Compare different loan options to make an informed decision.",
     path: "/comparisons/compareLoans",
   },
   {
-    src: "/images/compare-save-acc.png",
+    src: "/compare-save-acc.png",
     title: "Compare Saving Accounts",
     description:
       "Explore a wide range of savings accounts & find the best option for you.",
     path: "/comparisons/compareSavingAcc",
   },
   {
-    src: "/images/compare-fixed-dep.png",
+    src: "/compare-fixed-dep.png",
     title: "Compare Fixed Deposit Accounts",
     description: "Maximize your savings with fixed deposit account comparison.",
     path: "/comparisons/compareFixedDeposit",
