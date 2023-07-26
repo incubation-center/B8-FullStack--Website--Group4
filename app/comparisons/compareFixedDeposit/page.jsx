@@ -1,8 +1,8 @@
-"use client";
+// "use client";
 import React from "react";
 import Faq from "../../components/Faq";
-import CompareFixedDepoForm from "./CompareFixedDepoForm";
-import TableContentFixedDepo from "./TableContentFixedDepo";
+import CompareFixedDepoForm from "../../components/FixedDeposit/CompareFixedDepoForm";
+// import TableContentFixedDepo from "../../components/FixedDeposit/TableContentFixedDepo";
 
 const Page = () => {
   return (
@@ -24,9 +24,9 @@ const Page = () => {
           </p>
         </div>
         {/* function compare fixed deposit */}
-        <CompareFixedDepoForm />
+        {/* <CompareFixedDepoForm /> */}
         {/* <PromotionOffer /> */}
-        <TableContentFixedDepo />
+        {/* <TableContentFixedDepo /> */}
       </div>
       {/* frequently ask questions */}
       <Faq />

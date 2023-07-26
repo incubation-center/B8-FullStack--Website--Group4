@@ -1,4 +1,3 @@
-import { Images } from "../../components/Images";
 
 const posts = [
   {

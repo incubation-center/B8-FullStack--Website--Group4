@@ -1,10 +1,13 @@
-"use client";
+// "use client";
 import Faq from "@/app/components/Faq";
 import React from "react";
-import CompareLoansForm from "./CompareLoansForm";
-import TableContentLoans from "./TableContentLoans";
-import SavingLineChart from "./SavingLineChart";
-import ExchangeRateChart from "./ExchangeRateChart";
+// import CompareLoansForm from "./CompareLoansForm";
+import CompareLoansForm from "@/app/components/Loans/CompareLoansForm";
+// import TableContentLoans from "./TableContentLoans";
+// import TableContentLoans from "@/app/components/Loans/TableContentLoans";
+import SavingLineChart from "../../components/Loans/SavingLineChart";
+// import ExchangeRateChart from "./ExchangeRateChart";
+import ExchangeRateChart from "@/app/components/Loans/ExchangeRateChart";
 
 const Page = () => {
   return (
@@ -23,7 +26,7 @@ const Page = () => {
           </p>
         </div>
         {/* fuction compare loan */}
-        <CompareLoansForm />
+        {/* <CompareLoansForm /> */}
         {/* we found 51 products */}
         <div className="text-center mt-24 flex flex-col justify-center items-center">
           <h1 className="text-[#101828] font-medium text-xl">
@@ -55,7 +58,7 @@ const Page = () => {
         <SavingLineChart />
         <ExchangeRateChart />
         {/* <PromotionOffer /> */}
-        <TableContentLoans />
+        {/* <TableContentLoans /> */}
       </div>
 
       {/* FAQ */}

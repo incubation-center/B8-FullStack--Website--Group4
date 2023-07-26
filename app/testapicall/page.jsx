@@ -7,7 +7,8 @@ import {
   getAllfixeddeposithistory,
 } from "../api/fixeddeposits/getAlldeposits";
 import { MultiSelect } from "react-multi-select-component";
-import { fetchAllBankData } from "../comparisons/compareSavingAcc/fetchAllBankData";
+// import { fetchAllBankData } from "../comparisons/compareSavingAcc/fetchAllBankData";
+import { fetchAllBankData } from "../components/SavingAcc/fetchAllBankData";
 import Select from "react-select";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";

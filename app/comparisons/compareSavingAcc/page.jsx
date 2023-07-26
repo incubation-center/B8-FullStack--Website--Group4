@@ -1,13 +1,20 @@
-"use client";
+// "use client";
 import Faq from "@/app/components/Faq";
 import React from "react";
-import CompareSavingAccForm from "./CompareSaveAccForm";
-import DisplayContent from "./DisplayContent";
-import TableOfContent from "./TableOfContent";
-import Chart from "./Chart";
-import ChartComponent from "./ChartBar";
-import ChartFilter from "./ChartFilter";
-import FeatureOfferBank from "./FeatureOfferBank";
+// import CompareSavingAccForm from "./CompareSaveAccForm";
+import CompareSavingAccForm from "@/app/components/SavingAcc/CompareSaveAccForm";
+// import DisplayContent from "./DisplayContent";
+import DisplayContent from "@/app/components/SavingAcc/DisplayContent";
+// import TableOfContent from "./TableOfContent";
+// import TableOfContent from "@/app/components/SavingAcc/TableOfContent";
+// import Chart from "./Chart";
+import Chart from "@/app/components/SavingAcc/Chart";
+// import ChartComponent from "./ChartBar";
+import ChartComponent from "@/app/components/SavingAcc/ChartBar";
+// import ChartFilter from "./ChartFilter";
+import ChartFilter from "@/app/components/SavingAcc/ChartFilter";
+// import FeatureOfferBank from "./FeatureOfferBank";
+import FeatureOfferBank from "@/app/components/SavingAcc/FeatureOfferBank";
 
 const Page = () => {
   return (
@@ -29,7 +36,7 @@ const Page = () => {
         </div>
 
         {/* fuction compare saving accounts */}
-        <CompareSavingAccForm />
+        {/* <CompareSavingAccForm /> */}
         {/* test display banks selected */}
 
         <DisplayContent />
@@ -38,7 +45,7 @@ const Page = () => {
         <Chart />
         <ChartComponent />
         <ChartFilter />
-        <TableOfContent />
+        {/* <TableOfContent /> */}
       </div>
       <Faq />
     </div>

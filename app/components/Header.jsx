@@ -4,10 +4,8 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Navbar,
   Collapse,
   Typography,
-  Button,
   IconButton,
   List,
   ListItem,
@@ -20,8 +18,6 @@ import {
   ChevronDownIcon,
   Bars3Icon,
   XMarkIcon,
-  FlagIcon,
-  GiftIcon,
 } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
 import ChatGPT from "app/components/ChatGPT";
@@ -460,6 +456,7 @@ const Header = () => {
   }, []);
 
   return (
+  
     <div>
       <ChatGPT />
       <div className="top-0 fixed w-full z-[9999] flex bg-white items-center justify-between md:justify-around border py-2">
@@ -568,6 +565,7 @@ const Header = () => {
         </div>
       </Collapse>
     </div>
+   
   );
 };
 
