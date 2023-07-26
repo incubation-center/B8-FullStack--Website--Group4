@@ -1,5 +1,4 @@
-// Layout.js
-
+"use client";
 import Footer from "@/app/components/Footer";
 import Header from "../../components/Header";
 import React from "react";

@@ -1,8 +1,7 @@
-// account infor at Compare Saving Account page
-import React, {useState} from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import ImageDisplay from "@/app/components/ImageDisplay";
-
 
 const bankData = [
   {
@@ -94,7 +93,6 @@ const listIcon = (
   </svg>
 );
 
-
 const overviewChipmong = Object.values(bankData[0].overviewList);
 const overviewAba = Object.values(bankData[1].overviewList);
 const overviewAcleda = Object.values(bankData[2].overviewList);
@@ -157,7 +155,10 @@ const BankInfo = () => {
             {/* more info on overview */}
             <div className=" md:flex-col mt-8 gap-3 hidden sm:hidden md:block ">
               {Object.values(bank.overviewList).map((text, index) => (
-                <div key={index} className="flex flex-row justify-start items-start gap-2">
+                <div
+                  key={index}
+                  className="flex flex-row justify-start items-start gap-2"
+                >
                   <div className="min-w-[15px] h-auto">{listIcon}</div>
                   <p className="text-[#667085] text-base">{text}</p>
                 </div>

@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import ChooseFixedDepoList from "./ChooseFixedDepoList";
@@ -165,7 +166,9 @@ const TableContentFixedDepo = () => {
                   {data.aboutFixedDepoAcc.aboutFixedDepoAccSecond}
                 </p>
                 <SecondNumlist />
-                <p className="mt-5">{data.aboutFixedDepoAcc.aboutFixedDepoAccEnd}</p>
+                <p className="mt-5">
+                  {data.aboutFixedDepoAcc.aboutFixedDepoAccEnd}
+                </p>
               </div>
 
               <h2 className="titleText mt-6">
@@ -173,9 +176,11 @@ const TableContentFixedDepo = () => {
               </h2>
               <div className="bodyText mt-6">
                 <p className="">{data.getFixedDepoAcc.getFixedDepoAccHead}</p>
-                <BulletFixedDepoList /> 
-                <p className="mt-5">{data.getFixedDepoAcc.getFixedDepoAccEnd}</p>
-               
+                <BulletFixedDepoList />
+                <p className="mt-5">
+                  {data.getFixedDepoAcc.getFixedDepoAccEnd}
+                </p>
+
                 {/* <WhoGetFixDepo /> */}
               </div>
             </div>

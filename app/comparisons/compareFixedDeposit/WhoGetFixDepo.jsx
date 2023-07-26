@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 const list = [
   "College savers: Saving for college is one of the biggest expenses parents face. Saving for students should be a marathon, not a sprint. An FDIC-insured savings account is a safe place to save for your child’s college education. Eventually, you might want to consider moving some money into a CD — depending on when your child is starting college.",
@@ -7,19 +8,19 @@ const list = [
   "Future homeowners: A savings account at an FDIC-insured bank is the perfect place for your future downpayment on a home. Automate your savings to make sure you achieve your goal of homeownership.",
 ];
 const WhoGetFixDepo = () => {
-   const ulStyles = {
-     listStyleType: "disc", // Set the list item numbering style to decimal
-     paddingLeft: "20px", // Add some left padding for indentation
-   };
-   return (
-     <ul style={ulStyles} className="bodyText mt-6">
-       {list.map((item, index) => (
-         <li key={index} className="mt-4">
-           {item}
-         </li>
-       ))}
-     </ul>
-   );
+  const ulStyles = {
+    listStyleType: "disc", // Set the list item numbering style to decimal
+    paddingLeft: "20px", // Add some left padding for indentation
+  };
+  return (
+    <ul style={ulStyles} className="bodyText mt-6">
+      {list.map((item, index) => (
+        <li key={index} className="mt-4">
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default WhoGetFixDepo;

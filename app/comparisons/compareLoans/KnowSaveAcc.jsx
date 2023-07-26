@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import WhoGetSavAccList from "./WhoGetSavAccList";
 
@@ -7,9 +8,7 @@ const KnowSaveAcc = () => {
       <h1 className="text-[#101828] font-semibold text-3xl">
         What to know about loans
       </h1>
-      <h2 className="titleText mt-6">
-        What is a loan and how does it work?
-      </h2>
+      <h2 className="titleText mt-6">What is a loan and how does it work?</h2>
       <div className="bodyText mt-4">
         <p>
           A savings account is a type of financial account found at both banks
