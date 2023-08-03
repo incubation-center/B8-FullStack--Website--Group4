@@ -32,7 +32,7 @@ const Promotions = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const result = await fetch("http://34.143.180.195:8080/promotion");
+        const result = await fetch("http://34.126.97.182:8080/promotion");
         const data = await result.json();
         setPromotionData(data.data.promotions);
         console.log(data.data.promotions, "this is my data");
