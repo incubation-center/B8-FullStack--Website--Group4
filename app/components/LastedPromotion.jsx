@@ -8,7 +8,7 @@ function LastedPromotion() {
   // useEffect(() => {
   //   const fetchPosts = async () => {
   //     try {
-  //       const response = await fetch("http://34.126.97.182:8080/promotion");
+  //       const response = await fetch("http://34.143.152.92:8080/promotion");
   //       const data = await response.json();
   //       setPosts(data.data.promotions);
   //       setLoading(false);
@@ -21,7 +21,7 @@ function LastedPromotion() {
   // }, []);
 
   async function fetchPosts() {
-    const response = await fetch("http://34.126.97.182:8080/promotion");
+    const response = await fetch("http://34.143.152.92:8080/promotion");
     const data = await response.json();
     setPosts(data.data.promotions);
     setLoading(false);

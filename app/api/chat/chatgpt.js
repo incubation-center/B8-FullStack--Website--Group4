@@ -4,7 +4,7 @@ import axios from "axios";
 export async function getReply(userQuestion) {
 // axios make request to  "localhost:8000/chat?question=" + userQuestion
 
-const url = 'http://34.126.97.182:8000/chat';
+const url = 'http://34.143.152.92:8000/chat';
 const headers = {
   'accept': 'application/json',
   'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ const PromoDetails = ({ params }) => {
       const fetchData = async () => {
         console.log(detailId, "this is my detail id");
         const result = await fetch(
-          `http://34.126.97.182:8080/promotion/{id}?id=${detailId}`
+          `http://34.143.152.92:8080/promotion/{id}?id=${detailId}`
         );
 
         const data = await result.json();
