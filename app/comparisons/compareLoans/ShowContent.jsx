@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import FeaOfferBank from "./FeaOfferBank";
 
@@ -148,7 +149,7 @@ const currencyDollar = (
 );
 
 const ShowContent = () => {
-    const [currency, setCurrency] = useState(true);
+  const [currency, setCurrency] = useState(true);
 
   return (
     <div>

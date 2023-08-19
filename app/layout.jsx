@@ -34,6 +34,7 @@ export default function RootLayout({ children }) {
             router === "/landingPage" ||
             router === "/contact" ||
             router === "/legal" ||
+            router === "/aboutus" ||
             router === "/FAQs") && <Header className="" />}
           <main className="flex-1">{children}</main>
           {(router === "/" ||

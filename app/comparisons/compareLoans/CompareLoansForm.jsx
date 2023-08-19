@@ -30,7 +30,10 @@ const mark = (
     </defs>
   </svg>
 );
-
+const handleButtonClick = (e) => {
+  e.preventDefault();
+  alert("This section we are in progress !!!");
+};
 const CompareLoansForm = () => {
   return (
     <div>
@@ -44,7 +47,7 @@ const CompareLoansForm = () => {
           <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
-                Select your bank
+                Select Banks
               </label>
               {mark}
             </div>
@@ -61,7 +64,7 @@ const CompareLoansForm = () => {
           <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
-                Loan type
+                Loan Types
               </label>
               {mark}
             </div>
@@ -85,7 +88,7 @@ const CompareLoansForm = () => {
           <div className="flex flex-col gap-3 w-full">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
-                Select Filter
+                Select Terms
               </label>
               {mark}
             </div>
@@ -114,6 +117,7 @@ const CompareLoansForm = () => {
         {/* update result */}
         <div className=" flex md:justify-end items-center mt-8  ">
           <button
+            onClick={handleButtonClick}
             type="submit"
             className="redButton w-full sm:w-full md:max-w-[155px] font-semibold "
           >

@@ -1,3 +1,4 @@
+"use client";
 import { atom, selector } from "recoil";
 
 export const bankDataAtom = atom({
@@ -5,26 +6,35 @@ export const bankDataAtom = atom({
   default: [],
 });
 
+export const savingChartDataAtom = atom({
+  key: "savingChartDataAtom",
+  default: {
+    data: [],
+    categories: [],
+  },
+});
+
 export const selectedBankState = atom({
   key: "selectedBankState",
   default: [],
 });
 
-export const filteredBankDataAtom = selector({
+export const selectedCurrencyState = atom({
+  key: "selectedCurrencyState",
+  default: undefined,
+});
+
+export const isFilteredBankDataState = atom({
+  key: "isFilteredBankDataState",
+  default: false,
+});
+
+export const filteredBankDataAtom = atom({
   key: "filteredBankDataAtom",
-  get: ({ get }) => {
-    const selectedBank = get(selectedBankState);
+  default: [],
+});
 
-    if (selectedBank.length === 0) return null;
-
-    const bankData = get(bankDataAtom);
-
-    if (bankData.length > 0) {
-      return bankData.filter((bank) => {
-        return selectedBank.includes(bank.bank);
-      });
-    }
-
-    return [];
-  },
+export const filteredSavingChartDataAtom = atom({
+  key: "filteredSavingChartDataAtom",
+  default: [],
 });

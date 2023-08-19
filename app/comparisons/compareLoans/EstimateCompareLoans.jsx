@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 const whiteMark = (
@@ -81,7 +82,9 @@ const EstimateCompareLoans = () => {
               <option value="micro">Micro</option>
               <option value="mortages">Mortgages</option>
               <option value="personal">Personal</option>
-              <option value="small-medium-enterprise">Small & Medium Enterprise</option>
+              <option value="small-medium-enterprise">
+                Small & Medium Enterprise
+              </option>
               <option value="secured-personal">Secured Personal</option>
               <option value="term">Term</option>
             </select>

@@ -1,76 +1,78 @@
-"use client";
+import React, { Component } from "react";
+import dynamic from "next/dynamic";
 
-import React, { useEffect, useRef } from "react";
-import ApexCharts from "apexcharts";
+const ApexCharts = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const ExchangeRateChart = () => {
-  const chartRef = useRef(null);
-  let chart = null;
+class ExchangeRateChart extends Component {
+  constructor(props) {
+    super(props);
+    this.chartRef = React.createRef();
+    this.chart = null;
 
-  useEffect(() => {
-    const seriesData = [
-      {
-        name: "series1",
-        data: [31, 40, 28, 51, 42, 109, 100],
-      },
-      {
-        name: "series2",
-        data: [11, 32, 45, 32, 34, 52, 41],
-      },
-    ];
-
-    const chartOptions = {
-      series: seriesData,
-      chart: {
-        height: 350,
-        type: "area",
-        zoom: {
+    this.state = {
+      options: {
+        chart: {
+          height: 350,
+          type: "area",
+          zoom: {
+            enabled: false,
+          },
+        },
+        dataLabels: {
           enabled: false,
         },
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: "smooth",
-      },
-      xaxis: {
-        type: "datetime",
-        categories: [
-          "2018-09-19T00:00:00.000Z",
-          "2018-09-19T01:30:00.000Z",
-          "2018-09-19T02:30:00.000Z",
-          "2018-09-19T03:30:00.000Z",
-          "2018-09-19T04:30:00.000Z",
-          "2018-09-19T05:30:00.000Z",
-          "2018-09-19T06:30:00.000Z",
-        ],
-      },
-      tooltip: {
-        x: {
-          format: "dd/MM/yy HH:mm",
+        stroke: {
+          curve: "smooth",
+        },
+        xaxis: {
+          type: "datetime",
+          categories: [
+            "2018-09-19T00:00:00.000Z",
+            "2018-09-19T01:30:00.000Z",
+            "2018-09-19T02:30:00.000Z",
+            "2018-09-19T03:30:00.000Z",
+            "2018-09-19T04:30:00.000Z",
+            "2018-09-19T05:30:00.000Z",
+            "2018-09-19T06:30:00.000Z",
+          ],
+        },
+        tooltip: {
+          x: {
+            format: "dd/MM/yy HH:mm",
+          },
         },
       },
+      series: [
+        {
+          name: "series1",
+          data: [31, 40, 28, 51, 42, 109, 100],
+        },
+        {
+          name: "series2",
+          data: [11, 32, 45, 32, 34, 52, 41],
+        },
+      ],
     };
+  }
 
-    chart = new ApexCharts(chartRef.current, chartOptions);
-    chart.render();
+  componentDidMount() {
+    this.chart = new ApexCharts(this.chartRef.current, this.state.options);
+    // this.chart.render(); // Remove this line
+  }
+  
 
-    return () => {
-      chart.destroy();
-    };
-  }, []);
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.series !== this.state.series) {
+      this.updateChart();
+    }
+  }
 
-  //   const handleZoomIn = () => {
-  //     chart.zoomIn();
-  //   };
+  updateChart() {
+    this.chart.updateSeries(this.state.series);
+  }
 
-  //   const handleZoomOut = () => {
-  //     chart.zoomOut();
-  //   };
-
-  const handleSetZoom = (duration) => {
-    const { xaxis } = chart.options;
+  handleSetZoom = (duration) => {
+    const { xaxis } = this.chart.options;
     if (xaxis && xaxis.categories) {
       const { categories } = xaxis;
       const numDataPoints = categories.length;
@@ -94,7 +96,7 @@ const ExchangeRateChart = () => {
           return;
       }
 
-      chart.updateOptions({
+      this.chart.updateOptions({
         xaxis: {
           categories: categories.slice(newMinIndex, newMaxIndex + 1),
         },
@@ -102,49 +104,39 @@ const ExchangeRateChart = () => {
     }
   };
 
-  return (
-    <div>
-      <div className="flex justify-center space-x-4 mb-4">
-        {/* <button
-          className="px-4 py-2 rounded-md bg-blue-500 text-white"
-          onClick={handleZoomIn}
-        >
-          Zoom In
-        </button>
-        <button
-          className="px-4 py-2 rounded-md bg-blue-500 text-white"
-          onClick={handleZoomOut}
-        >
-          Zoom Out
-        </button> */}
-        <button
-          className="px-4 py-2 rounded-md bg-blue-500 text-white"
-          onClick={() => handleSetZoom("1month")}
-        >
-          1 Month
-        </button>
-        <button
-          className="px-4 py-2 rounded-md bg-blue-500 text-white"
-          onClick={() => handleSetZoom("2months")}
-        >
-          2 Months
-        </button>
-        <button
-          className="px-4 py-2 rounded-md bg-blue-500 text-white"
-          onClick={() => handleSetZoom("6months")}
-        >
-          6 Months
-        </button>
-        <button
-          className="px-4 py-2 rounded-md bg-blue-500 text-white"
-          onClick={() => handleSetZoom("1year")}
-        >
-          1 Year
-        </button>
+  render() {
+    return (
+      <div>
+        <div className="flex justify-center space-x-4 mb-4">
+          <button
+            className="px-4 py-2 rounded-md bg-blue-500 text-white"
+            onClick={() => this.handleSetZoom("1month")} // Use "this.handleSetZoom" here
+          >
+            1 Month
+          </button>
+          <button
+            className="px-4 py-2 rounded-md bg-blue-500 text-white"
+            onClick={() => this.handleSetZoom("2months")} // Use "this.handleSetZoom" here
+          >
+            2 Months
+          </button>
+          <button
+            className="px-4 py-2 rounded-md bg-blue-500 text-white"
+            onClick={() => this.handleSetZoom("6months")} // Use "this.handleSetZoom" here
+          >
+            6 Months
+          </button>
+          <button
+            className="px-4 py-2 rounded-md bg-blue-500 text-white"
+            onClick={() => this.handleSetZoom("1year")} // Use "this.handleSetZoom" here
+          >
+            1 Year
+          </button>
+        </div>
+        <div ref={this.chartRef} />
       </div>
-      <div ref={chartRef} />
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default ExchangeRateChart;

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import data from "./data";
 
@@ -9,7 +10,7 @@ const ChooseFixedDepoList = () => {
 
   return (
     <ol style={olStyles} className="bodyText mt-6">
-      {data.savingAcc.saveList.map((item, index) => (
+      {data.fixedDepoAcc.fixedDepoAccList.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
     </ol>

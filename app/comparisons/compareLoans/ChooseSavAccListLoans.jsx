@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import data from "./data";
 
@@ -9,7 +10,7 @@ const ChooseSavAccList = () => {
 
   return (
     <ol style={olStyles} className="bodyText mt-6">
-      {data.savingAcc.saveList.map((item, index) => (
+      {data.loan.loanList.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
     </ol>

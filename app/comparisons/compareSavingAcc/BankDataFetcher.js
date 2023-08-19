@@ -8,9 +8,7 @@ export const BankDataFetcher = selector({
   key: "BankDataFetcher",
   get: async ({ get }) => {
     try {
-      const response = await axios.get(
-        "http://34.143.206.144:8080/savings/all"
-      );
+      const response = await axios.get("http://34.143.152.92:8080/savings/all");
       return response.data.savings;
     } catch (error) {
       console.log("Vichet fetching error: ", error);

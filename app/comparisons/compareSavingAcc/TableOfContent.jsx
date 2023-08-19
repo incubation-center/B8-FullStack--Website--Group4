@@ -1,10 +1,12 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import BankInfo from "./BankInfo";
-import data from "/public/data.json";
 import ChooseSavAccList from "./ChooseSavAccList";
 import KnowSaveAcc from "./KnowSaveAcc";
 import SocialLink from "@/app/components/SocialLink";
+import data from "./data.json";
+import ResourceList from "./ResourceList";
 
 const TableOfContent = () => {
   // what to know about saving accounts
@@ -98,40 +100,28 @@ const TableOfContent = () => {
             <h1 className="text-gray-900 font-semibold text-3xl">
               Best savings accounts and rates in June 2023
             </h1>
-            <p className="mt-6 text-[#667085] text-lg">
-              Mi tincidunt elit, id quisque ligula ac diam, amet. Vel etiam
-              suspendisse morbi eleifend faucibus eget vestibulum felis. Dictum
-              quis montes, sit sit. Tellus aliquam enim urna, etiam. Mauris
-              posuere vulputate arcu amet, vitae nisi, tellus tincidunt. At
-              feugiat sapien varius id.
+            <p className="mt-6 text-[#667085] text-lg mb-12">
+              As we approach the midpoint of 2023, it's the perfect time to
+              explore the best savings accounts and rates available in the
+              financial market. Whether you're looking to grow your emergency
+              fund, save for a major purchase, or plan for the future, finding
+              the right savings account can make a significant difference. In
+              this guide, we've carefully curated a selection of top savings
+              accounts and their competitive rates, helping you make informed
+              decisions to optimize your savings strategy.
             </p>
-            <p className="mt-5 mb-12 text-[#667085] text-lg">
-              Eget quis mi enim, leo lacinia pharetra, semper. Eget in volutpat
-              mollis at volutpat lectus velit, sed auctor. Porttitor fames arcu
-              quis fusce augue enim. Quis at habitant diam at. Suscipit
-              tristique risus, at donec. In turpis vel et quam imperdiet. Ipsum
-              molestie aliquet sodales id est ac volutpat.
-            </p>
+
             {/* chipmong bank */}
             <div className="flex flex-col gap-6">
-              <BankInfo />
-              <BankInfo />
               <BankInfo />
             </div>
             {/* more text below bank info */}
             {/* use style "bodyText" in body */}
-            <div className="bodyText mt-6 flex flex-col gap-6 ">
-              <p className="">{data.textBelowOverview.text1}</p>
-              <p className="">{data.textBelowOverview.text2}</p>
-              <p className="">{data.textBelowOverview.text3}</p>
-            </div>
-            <div className="mt-12">
-              <h1 className="titleText">Software and tools</h1>
-              <p className="bodyText mt-4 ">{data.softwareTools}</p>
-            </div>
+            <p className="bodyText mt-6">{data.belowTextOverview}</p>
             <div>
               <h1 className="titleText mt-12">Other resources</h1>
               <p className="bodyText mt-12">{data.otherResources.resource1}</p>
+              <ResourceList />
               <p className="bodyText mt-6"> {data.otherResources.resource2}</p>
             </div>
           </div>

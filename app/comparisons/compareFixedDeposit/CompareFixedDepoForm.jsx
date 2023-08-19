@@ -1,20 +1,17 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import { Card, Typography } from "@material-tailwind/react";
-import ReactPaginate from "react-paginate";
-import { MultiSelect } from "react-multi-select-component";
+
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 import {
   fetchAllBanks,
-  getAlldepositsBybank,
   getAlldepositsDefualtLineChart,
   getAlldepositsdefualt,
   getAllfixeddeposithistory,
   getAllfixeddepositlist,
 } from "../../api/fixeddeposits/getAlldeposits";
-import ChartFilter from "../compareSavingAcc/ChartFilter";
-import ChartComponent from "../compareSavingAcc/ChartBar";
+
 import Chartfixdeposits from "./Chartfixdeposits";
 
 const term = [
@@ -186,7 +183,7 @@ const CompareFixedDepoForm = () => {
   return (
     <div>
       <div className="p-10 bg-gray-200 rounded-md mt-10">
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 ">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2  gap-6 ">
           <div className="flex flex-col gap-3">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
@@ -279,7 +276,7 @@ const CompareFixedDepoForm = () => {
               </div>
             </Combobox>
           </div>
-          <div className="flex flex-col gap-3">
+          {/* <div className="flex flex-col gap-3">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
                 Select RateAt
@@ -318,7 +315,7 @@ const CompareFixedDepoForm = () => {
               <option value="Monthly">Monthly</option>
               <option value="Quarterly">Quarterly</option>
             </select>
-          </div>
+          </div> */}
           <div className="flex flex-col gap-3">
             <div className="flex flex-row justify-between ">
               <label for="value" className="labelStyle">
@@ -421,7 +418,7 @@ const CompareFixedDepoForm = () => {
               </div>
             </Combobox>
           </div>
-          <div className="flex flex-col gap-3">
+          {/* <div className="flex flex-col gap-3">
             <div className="flex flex-row justify-between">
               <label for="value" className="labelStyle">
                 Select currency
@@ -459,7 +456,7 @@ const CompareFixedDepoForm = () => {
               <option value="KHR">KHR</option>
               <option value="USD">USD</option>
             </select>
-          </div>
+          </div> */}
         </div>
         <div className="flex justify-end mt-5 ">
           <button
@@ -472,20 +469,21 @@ const CompareFixedDepoForm = () => {
         </div>
       </div>
       <div className="mt-20">
-        <div className="text-center">
+        {/* header */}
+        <div className="text-center flex flex-col justify-center items-center">
           <h1 className="text-[#101828] font-medium text-xl">
             Good news! We’ve found{" "}
             <span className="text-[#12B76A]">51 products</span> for you to take
             a look at.
           </h1>
-          <p className="text-[#475467] text-lg font-normal mt-5">
-            Our platform keeps you updated on the most current and exciting
-            promotions from banks and financial institutions in Cambodia.
+          <p className="text-[#475467] text-lg font-normal mt-5 max-w-[850px] mb-12">
+            Take a look and explore a wide range of options that match your
+            needs. Whether it's finding the perfect fixed deposit account,
+            investment opportunity, or financial service, our collection has
+            something for everyone. Start exploring now and discover the perfect
+            fit for your financial goals!
           </p>
         </div>
-        <Chartfixdeposits data={datachart} />
-
-        {/* data of the table term */}
         <div className="flex flex-col">
           <div className="overflow-x-auto">
             <div className="p-1.5 w-full inline-block align-middle">
@@ -508,7 +506,8 @@ const CompareFixedDepoForm = () => {
                             scope="col"
                             className="px-6 py-3 text-gray-900 font-semibold text-left uppercase "
                           >
-                            Term : {term}
+                            Term:{term}
+                            <br></br> Months
                           </th>
                         ))}
                       </tr>
@@ -549,6 +548,22 @@ const CompareFixedDepoForm = () => {
             </div>
           </div>
         </div>
+        {/* chart header */}
+        <div className=" flex flex-col justify-center items-center my-12">
+          <p className="text-gray-900 font-semibold text-3xl sm:text-3xl md:text-4xl text-center pt-4">
+            Fixed Deposit Rate Live Line Chart
+          </p>
+          <p className="max-w-3xl text-gray-500 font-normal text-center pt-4 sm:pt-4 md:pt-5 text-lg sm:text-lg md:text-xl">
+            It is a dynamic graphical representation that visually displays the
+            fluctuation of fixed deposit interest rates over time. This chart
+            provides real-time updates, allowing users to monitor the changing
+            interest rates offered by various banks and financial institutions
+            for fixed deposit accounts.
+          </p>
+        </div>
+        <Chartfixdeposits data={datachart} />
+
+        {/* data of the table term */}
       </div>
     </div>
   );

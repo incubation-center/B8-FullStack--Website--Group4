@@ -13,12 +13,15 @@ import { promoDataAtom } from "./promoData";
 import Faq from "../components/Faq";
 import ReactPaginate from "react-paginate";
 import axios from "axios";
+// import LastedPromotion from "../components/LastedPromotion";
 // import { useRecoilState } from "recoil";
 
 const Promotions = () => {
   // const router = useRouter();
   const [promotionData, setPromotionData] = useRecoilState(promoDataAtom);
   const [loading, setLoading] = useState(true);
+  //our promotion
+  const [ourpromo, setOurpromo] = useRecoilState(promoDataAtom);
   // console.log(promotionData, "this is my promotionData");
   // const promo = promotionData.data.promotions;
 
@@ -29,11 +32,15 @@ const Promotions = () => {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const result = await fetch("http://34.143.206.144:8080/promotion");
+        const result = await fetch("http://34.143.152.92:8080/promotion");
         const data = await result.json();
         setPromotionData(data.data.promotions);
+        console.log(data.data.promotions, "this is my data");
         setLoading(false);
         // console.log(data.data.promotions, "result");
+        // Filter out the item with ID 0
+        // setPromotionData.filter((item) => item.id !== 0);
+        // setPromotionData(filteredData);
       };
       fetchData();
     } catch (error) {
@@ -43,41 +50,25 @@ const Promotions = () => {
 
   // pagination
 
-  // const [data, setData] = useRecoilState(dataAtom);
-  // const [pageLoading, setPageLoading] = useState(true);
   const itemsPerPage = 6;
   const pageRangeDisplayed = 3;
   const marginPagesDisplayed = 1;
   const [itemOffset, setItemOffset] = useState(0);
   const endOffset = itemOffset + itemsPerPage;
-  // const [currentItems, setCurrentItems] = useRecoilState(currentItemsAtom);
 
   const currentItems = promotionData?.slice(itemOffset, endOffset);
   const pageCount = Math.ceil((promotionData?.length || 0) / itemsPerPage);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const res = await getAllfixedeposits();
-  //       setData(res);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchData();
-  // }, [setData]);
   const handlePageClick = (event) => {
     const selectedPage = event.selected;
     const newOffset = selectedPage * itemsPerPage;
     setItemOffset(newOffset);
   };
 
-
   return (
     <div className="w-10/12 mx-auto mt-20">
       {/* header with getting email */}
+      {/* <AllPosts /> */}
       <div className="py-16 ">
         <h1 className="bankName text-center">Promotions</h1>
         <p className="promotionName text-center">
@@ -98,8 +89,9 @@ const Promotions = () => {
           <button className="redButton">Subscribe</button>
         </div>
       </div>
+
       {/* Our promotion */}
-      <div className="py-16 ">
+      {/* <div className="py-16 ">
         <h1 className="bankName text-center">Our Promotions</h1>
         <p className="promotionName text-center">
           Cutting-edge features for comparisons
@@ -109,55 +101,15 @@ const Promotions = () => {
           make <br></br> informed decisions based on your unique needs and
           preferences.
         </p>
-      </div>
+      </div> */}
       {/* card */}
-      <div className="flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-10">
-          {data.map((item, index) => (
-            <div
-              key={index}
-              className="max-w-sm bg-white border border-gray-100 rounded-lg cursor-pointer p-1 flex flex-col"
-            >
-              <Image
-                className="rounded-t-lg mb-5"
-                src={item.img}
-                alt=""
-                width={1000}
-                height={100}
-              />
-
-              <p className="bankName">{item.name}</p>
-              <p className="promotionName">{item.title}</p>
-              <p className="promotionContent mb-5">{item.article}</p>
-              <div className="mt-auto">
-                <a href="#" className="inline-flex items-center gap-2 bankName">
-                  Read more
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M9.99999 13.3334L13.3333 10.0001M13.3333 10.0001L9.99999 6.66675M13.3333 10.0001H6.66666M18.3333 10.0001C18.3333 14.6025 14.6024 18.3334 9.99999 18.3334C5.39762 18.3334 1.66666 14.6025 1.66666 10.0001C1.66666 5.39771 5.39762 1.66675 9.99999 1.66675C14.6024 1.66675 18.3333 5.39771 18.3333 10.0001Z"
-                      stroke="#E40109"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* <LastedPromotion /> */}
+      
 
       {/* promotion */}
 
       <div className="py-16 ">
-        <h1 className="bankName text-center">Our Promotions</h1>
+        <h1 className="bankName text-center">Promotions</h1>
         <p className="promotionName text-center">
           Cutting-edge features for comparisons
         </p>
@@ -181,10 +133,10 @@ const Promotions = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 p-10">
             {currentItems.map((item, index) => (
               <Link
-                href={`/promotions/${index}`}
+                href={`/promotions/${item.id}`}
                 key={index}
                 className="max-w-sm bg-white border border-gray-100 rounded-lg cursor-pointer p-1 flex flex-col"
-                // onClick={() => handleClick(index)}
+                // onClick={() => handleClick(id)}
               >
                 <div className="overflow-hidden h-[250px] ">
                   <img

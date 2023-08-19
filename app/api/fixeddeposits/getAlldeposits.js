@@ -34,7 +34,7 @@ import qs from "querystring";
 export async function getAlldepositsdefualt() {
   try {
     const data = await axios.get(
-      `http://35.240.154.65:8080/fixeddeposits/bank-term?currency=KHR&rateAt=Maturity&term=6&term=12&term=24&term=48      `
+      `http://34.143.152.92:8080/fixeddeposits/bank-term?currency=KHR&rateAt=Maturity&term=6&term=12&term=24&term=48      `
     );
     if (data.status === 200) {
       const alldata = data.data;
@@ -48,7 +48,7 @@ export async function getAlldepositsdefualt() {
 export async function fetchAllBanks() {
   try {
     const data = await axios.get(
-      `http://35.240.154.65:8080/fixeddeposits/bank-term?currency=KHR&rateAt=Maturity`
+      `http://34.143.152.92:8080/fixeddeposits/bank-term?currency=KHR&rateAt=Maturity`
     );
     if (data.status === 200) {
       const alldata = data.data;
@@ -62,7 +62,7 @@ export async function fetchAllBanks() {
 export async function getAllfixeddepositlist(queryParams) {
   try {
     const response = await axios.get(
-      "http://35.240.154.65:8080/fixeddeposits/bank-term",
+      "http://34.143.152.92:8080/fixeddeposits/bank-term",
       {
         params: queryParams,
         paramsSerializer: (params) => {
@@ -85,7 +85,7 @@ export async function getAllfixeddepositlist(queryParams) {
 export async function getAllfixeddeposithistory(queryParams) {
   try {
     const response = await axios.get(
-      "http://35.240.154.65:8080/fixeddeposits/hist",
+      "http://34.143.152.92:8080/fixeddeposits/hist",
       {
         params: queryParams,
         paramsSerializer: (params) => {
@@ -108,7 +108,7 @@ export async function getAllfixeddeposithistory(queryParams) {
 export async function getAlldepositsDefualtLineChart() {
   try {
     const data = await axios.get(
-      `http://35.240.154.65:8080/fixeddeposits/hist?currency=KHR&rateAt=Maturity&term=6&term=12&term=24&term=48`
+      `http://34.143.152.92:8080/fixeddeposits/hist?currency=KHR&rateAt=Maturity&term=6&term=12&term=24&term=48`
     );
     if (data.status === 200) {
       const alldata = data.data;

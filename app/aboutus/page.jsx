@@ -44,7 +44,7 @@ const AboutUs = () => {
 
   const developers = [
     {
-      src: "/images/chantha.png",
+      src: "/images/chantha2.jpg",
       name: "Yin Chantha",
       position: "Project Leader",
       description:

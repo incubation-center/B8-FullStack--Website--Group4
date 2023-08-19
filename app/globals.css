@@ -30,8 +30,8 @@
 .promotionContent {
   @apply text-gray-600 text-base font-normal;
 }
-.settingfont{
-  @apply text-gray-700 text-base font-semibold
+.settingfont {
+  @apply text-gray-700 text-base font-semibold;
 }
 .react-tel-input .form-control {
   @apply !w-full py-5 !border-2 !border-gray-100 !rounded-lg !text-base;
@@ -94,27 +94,26 @@
   @apply grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2;
 }
 
-
 /*comparison saving account form style*/
 .labelStyle {
-  @apply text-[#344054] text-sm font-medium
+  @apply text-[#344054] text-sm font-medium;
 }
 .inputStyle {
-  @apply text-[#667085] text-base font-normal px-[14px] py-[8px] rounded-lg border-[1px] border-[#D0D5DD] shadow-sm
+  @apply text-[#667085] text-base font-normal px-[14px] py-[8px] rounded-lg border-[1px] border-[#D0D5DD] shadow-sm;
 }
 .selectStyle {
-  @apply text-[#344054] text-base font-medium px-[14px] py-[8px] rounded-lg border-[1px] border-[#D0D5DD] shadow-sm
+  @apply text-[#344054] text-base font-medium px-[14px] py-[8px] rounded-lg border-[1px] border-[#D0D5DD] shadow-sm;
 }
 .submitBtn {
-  @apply text-[#344054] font-semibold text-base py-3 rounded-lg border-[1px] border-[#D0D5DD] shadow-sm bg-white
+  @apply text-[#344054] font-semibold text-base py-3 rounded-lg border-[1px] border-[#D0D5DD] shadow-sm bg-white;
 }
 
 /*bank info form*/
 .offerDetail {
-  @apply text-[#344054] text-xl font-semibold
+  @apply text-[#344054] text-xl font-semibold;
 }
 .offerTitle {
-  @apply text-[#667085] text-sm font-normal
+  @apply text-[#667085] text-sm font-normal;
 }
 
 /*estimate saving account*/
